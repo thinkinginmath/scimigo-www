@@ -1,8 +1,12 @@
+import Head from 'next/head';
 import Layout from '../components/Layout';
 
 export default function Home() {
   return (
     <Layout>
+      <Head>
+        <title>SciMigo: AI-Powered STEM Tutor</title>
+      </Head>
       <main>
         {/* Hero Section */}
         <section className="relative py-24 px-6">
