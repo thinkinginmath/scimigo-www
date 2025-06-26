@@ -1,0 +1,384 @@
+.main {
+  padding: 0.5rem 1rem 1.5rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.heroAvatar {
+  flex: 0 0 auto;
+  margin-right: 1.5rem;
+  margin-top: 0.2rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.heroContent {
+  flex: 2;
+  min-width: 300px;
+  text-align: left;
+}
+
+.extensionIcon {
+  width: 90px;
+  height: 90px;
+  margin: 0;
+  transition: transform 0.3s ease;
+}
+
+.extensionIcon:hover {
+  transform: scale(1.1);
+}
+
+.title {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #2563eb, #3b82f6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-align: left;
+  line-height: 1.2;
+}
+
+@media (prefers-color-scheme: dark) {
+  .title {
+    background: linear-gradient(45deg, #60a5fa, #3b82f6);
+  }
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .title {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto 1rem;
+  line-height: 1.5;
+}
+
+.features {
+  margin: 4rem 0;
+  padding: 2rem;
+  background: var(--section-background);
+  border-radius: 12px;
+}
+
+.featuresTitle {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  background: linear-gradient(45deg, var(--accent-gradient-start), var(--accent-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.componentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.componentCard {
+  background: var(--card-background);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.componentCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px var(--card-hover-shadow);
+}
+
+.componentTitle {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.componentDescription {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.linkContainer {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.link {
+  display: inline-block;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 1.1rem;
+  border: 2px solid #2563eb;
+  border-radius: 6px;
+  background: transparent;
+  transition: all 0.2s;
+  margin: 0.2rem 0 0 0;
+  box-sizing: border-box;
+}
+
+.link:hover {
+  background: #2563eb;
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .heroContent {
+    text-align: center;
+  }
+
+  .featuresTitle {
+    font-size: 2rem;
+  }
+
+  .componentCard {
+    padding: 1.5rem;
+  }
+
+  .linkContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.ctaSection {
+  margin: 3rem auto 2rem auto;
+  padding: 2rem;
+  background: var(--section-background);
+  border-radius: 12px;
+  text-align: center;
+  max-width: 700px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+}
+
+.ctaTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.ctaDescription {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaButton, .ctaButtonPrimary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  background: transparent;
+}
+
+.ctaButton:hover {
+  background: var(--accent-color);
+  color: var(--background);
+}
+
+.ctaButtonPrimary {
+  background: var(--accent-color);
+  color: var(--background);
+}
+
+.ctaButtonPrimary:hover {
+  background: var(--link-hover-color);
+  border-color: var(--link-hover-color);
+  color: var(--background);
+}
+
+.pricingSection {
+  margin: 1.5rem auto 1rem auto;
+  padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  background: var(--section-background);
+  border-radius: 16px;
+  max-width: 1100px;
+  box-shadow: 0 2px 12px var(--card-shadow);
+  text-align: center;
+}
+
+.pricingTitle {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+.pricingCard {
+  padding: 0.7rem 0.5rem 1rem 0.5rem;
+  background: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.pricingCard:hover {
+  box-shadow: 0 6px 20px var(--card-hover-shadow);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.pricingPlan {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+.pricingPrice {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.pricingPrice span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-left: 0.2rem;
+}
+
+.pricingFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  color: var(--text-secondary);
+  font-size: 1.08rem;
+}
+
+.pricingFeatures li {
+  margin-bottom: 0.5rem;
+}
+
+.pricingButton, .pricingButtonPrimary {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1.08rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  background: transparent;
+  margin-top: 0.5rem;
+}
+
+.pricingButton:hover {
+  background: var(--accent-color);
+  color: var(--background);
+}
+
+.pricingButtonPrimary {
+  background: var(--accent-color);
+  color: var(--background);
+}
+
+.pricingButtonPrimary:hover {
+  background: var(--link-hover-color);
+  border-color: var(--link-hover-color);
+  color: var(--background);
+}
+
+@media (max-width: 900px) {
+  .pricingGrid {
+    grid-template-columns: 1fr;
+  }
+  .pricingSection {
+    padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+  }
+}
+
+.heroAvatarColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 1.5rem;
+  margin-top: 0.2rem;
+}
+
+.introVideoSection {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0 1.5rem 0;
+}
+
+.introVideoWrapper {
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px var(--card-shadow);
+}
+
+.introVideoWrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+

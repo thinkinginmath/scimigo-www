@@ -1,0 +1,8 @@
+{
+  "domain": "scimigo.com",
+  "subdomains": ["www"], 
+  "certificateArn": "arn:aws:acm:us-east-1:204338471371:certificate/be8e3131-ba10-4adc-a5f6-1905bafe32a8",
+  "region": "us-east-1",
+  "s3Bucket": "scimigo.com",
+  "distributionComment": "SciMigo AI Tutor WWW Site"
+}

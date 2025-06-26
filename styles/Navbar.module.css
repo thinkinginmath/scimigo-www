@@ -1,0 +1,41 @@
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.7rem 2rem 0 2rem;
+  background: transparent;
+}
+
+.navLinks {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navLink {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.navLink:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    justify-content: center;
+    padding: 0.5rem 0 0 0;
+  }
+  .navLinks {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .navLink {
+    font-size: 1rem;
+  }
+} 

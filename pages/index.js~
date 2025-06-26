@@ -1,0 +1,113 @@
+import Layout from '../components/Layout';
+import styles from '../styles/Home.module.css';
+import Image from 'next/image';
+
+export default function Home() {
+  return (
+    <Layout>
+      <main className={styles.main}>
+        <div className={styles.hero}>
+          <div className={styles.heroAvatarColumn}>
+            <Image
+              src="/images/icon128.png"
+              alt="SciMigo Chrome Extension"
+              width={90}
+              height={90}
+              className={styles.extensionIcon}
+            />
+            <a className={styles.link} style={{marginTop: '0.7rem', display: 'block', textAlign: 'center'}} href="https://chrome.google.com/webstore/detail/scimigo/" target="_blank" rel="noopener noreferrer">Add to Chrome</a>
+          </div>
+          <div className={styles.heroContent}>
+            <h1 className={styles.title}>Your AI STEM Tutor, Right in Chrome</h1>
+            <p className={styles.description}>
+              Get instant, personalized help with math, coding, CS, and science problems—directly in your browser.
+              SciMigo is your always-available AI tutor for high school and college students.
+            </p>
+          </div>
+        </div>
+
+        <div className={styles.pricingSection}>
+          <div className={styles.pricingGrid}>
+            <div className={styles.pricingCard}>
+              <h3 className={styles.pricingPlan}>Free</h3>
+              <p className={styles.pricingPrice}>$0</p>
+              <ul className={styles.pricingFeatures}>
+                <li>3 queries per day</li>
+                <li>Basic explanations</li>
+                <li>&nbsp;</li>
+                <li>&nbsp;</li>
+              </ul>
+              <a className={styles.pricingButton} href="/signup">Sign Up Free</a>
+            </div>
+            <div className={styles.pricingCard}>
+              <h3 className={styles.pricingPlan}>Standard</h3>
+              <p className={styles.pricingPrice}>$10<span>/month</span></p>
+              <ul className={styles.pricingFeatures}>
+                <li>1M tokens/month</li>
+                <li>See query history</li>
+                <li>Priority support</li>
+                <li>&nbsp;</li>
+              </ul>
+              <a className={styles.pricingButtonPrimary} href="/subscribe">Subscribe</a>
+            </div>
+            <div className={styles.pricingCard}>
+              <h3 className={styles.pricingPlan}>Pro</h3>
+              <p className={styles.pricingPrice}>$20<span>/month</span></p>
+              <ul className={styles.pricingFeatures}>
+                <li>2M tokens/month</li>
+                <li>See query history</li>
+                <li>Voice tutoring option</li>
+                <li>Highest priority support</li>
+              </ul>
+              <a className={styles.pricingButtonPrimary} href="/subscribe">Go Pro</a>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.features}>
+          <h2 className={styles.featuresTitle}>How SciMigo Works</h2>
+          <div className={styles.componentGrid}>
+            <div className={styles.componentCard}>
+              <h3 className={styles.componentTitle}>Select Any Problem</h3>
+              <p className={styles.componentDescription}>
+                Highlight any math or science problem on a web page. SciMigo instantly recognizes and extracts the content.
+              </p>
+            </div>
+            <div className={styles.componentCard}>
+              <h3 className={styles.componentTitle}>Get Step-by-Step Help</h3>
+              <p className={styles.componentDescription}>
+                Receive clear, step-by-step explanations and answers powered by advanced AI. Learn at your own pace.
+              </p>
+            </div>
+            <div className={styles.componentCard}>
+              <h3 className={styles.componentTitle}>Track Your Progress</h3>
+              <p className={styles.componentDescription}>
+                View your query history, revisit past problems, and monitor your learning journey (with subscription).
+              </p>
+            </div>
+            <div className={styles.componentCard}>
+              <h3 className={styles.componentTitle}>Voice Tutoring (Pro)</h3>
+              <p className={styles.componentDescription}>
+                Upgrade to Pro for interactive voice tutoring and even more personalized support.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.ctaSection}>
+          <h2 className={styles.ctaTitle}>Start Your AI-Powered Learning Journey</h2>
+          <p className={styles.ctaDescription}>
+            Sign up or log in to access personalized STEM tutoring.<br />
+            <strong>Subscribe for just $10/month</strong> and get <strong>1M tokens</strong> for queries to OpenAI GPT models.
+          </p>
+          <div className={styles.ctaButtons}>
+            <a className={styles.ctaButton} href="/signup">Sign Up</a>
+            <a className={styles.ctaButton} href="/login">Login</a>
+            <a className={styles.ctaButtonPrimary} href="/subscribe">Subscribe</a>
+          </div>
+        </div>
+      </main>
+    </Layout>
+  );
+}
+
