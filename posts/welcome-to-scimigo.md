@@ -1,6 +1,6 @@
 ---
 title: "Welcome to SciMigo: Your AI-Powered STEM Tutor"
-date: "2024-12-01"
+date: "2025-06-27"
 excerpt: "Discover how SciMigo's multi-agent AI system revolutionizes STEM learning with personalized tutoring across mathematics, computer science, and algorithms."
 ---
 
