@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>SciMigo: AI-Powered STEM Tutor</title>
+        <title>SciMigo - AI-Powered STEM Tutor | Math, Computer Science & Algorithms</title>
       </Head>
       <main>
         {/* Hero Section */}
