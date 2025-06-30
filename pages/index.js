@@ -19,9 +19,23 @@ export default function Home() {
               From calculus and linear algebra to data structures and complexity analysis, get personalized step-by-step explanations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <div className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium rounded-md bg-muted text-muted-foreground border border-muted">
-                🚀 Launching Soon!
-              </div>
+              <a
+                href="https://app.scimigo.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+                onClick={() => {
+                  if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click_app_link', {
+                      event_category: 'engagement',
+                      event_label: 'hero_start_learning',
+                      value: 1
+                    });
+                  }
+                }}
+              >
+                🚀 Start Learning Now!
+              </a>
               <div className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium rounded-md border border-muted text-muted-foreground">
                 Chrome Extension - Coming Soon
               </div>
@@ -116,11 +130,25 @@ export default function Home() {
             <p className="text-lg text-muted-foreground mb-8">
               Experience the power of AI-driven STEM tutoring. Get step-by-step solutions for math, computer science, and algorithm problems.
             </p>
-            <div className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-md bg-primary/20 text-primary border border-primary/30">
-              🚀 Launching This Week!
-            </div>
+            <a
+              href="https://app.scimigo.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              onClick={() => {
+                if (typeof gtag !== 'undefined') {
+                  gtag('event', 'click_app_link', {
+                    event_category: 'engagement',
+                    event_label: 'cta_try_scimigo',
+                    value: 1
+                  });
+                }
+              }}
+            >
+              🚀 Try SciMigo Now!
+            </a>
             <p className="text-sm text-muted-foreground mt-4">
-              Get ready for AI-powered STEM tutoring
+              Experience AI-powered STEM tutoring today
             </p>
           </div>
         </section>

@@ -26,9 +26,23 @@ export default function Navbar() {
             <Link href="/blog" className="text-sm font-medium hover:text-primary transition-colors">
               Blog
             </Link>
-            <div className="px-4 py-2 text-sm font-medium rounded-md bg-muted text-muted-foreground border border-muted">
-              Coming Soon
-            </div>
+            <a
+              href="https://app.scimigo.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              onClick={() => {
+                if (typeof gtag !== 'undefined') {
+                  gtag('event', 'click_app_link', {
+                    event_category: 'engagement',
+                    event_label: 'navbar_get_started',
+                    value: 1
+                  });
+                }
+              }}
+            >
+              Get Started
+            </a>
           </div>
         </div>
       </div>
