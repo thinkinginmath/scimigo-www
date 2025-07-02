@@ -1,0 +1,123 @@
+{
+  "manifest_version": 3,
+  "name": "SciMigo AI-Powered STEM Tutor",
+  "version": "0.9.0",
+  "description": "Master math, computer science, and algorithms with personalized AI-powered STEM tutoring.",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'; style-src 'self' 'unsafe-inline' 'unsafe-hashes';",
+    "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline'; child-src 'self'"
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://api.scimigo.com/*",
+    "https://app.scimigo.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "public/icons/icon16.png",
+      "48": "public/icons/icon48.png",
+      "128": "public/icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "public/icons/icon16.png",
+    "48": "public/icons/icon48.png",
+    "128": "public/icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "exclude_matches": [
+        "*://*.openai.com/*",
+        "*://*.chatgpt.com/*",
+        "*://*.claude.ai/*",
+        "*://*.anthropic.com/*",
+        "*://*.google.com/gemini/*",
+        "*://*.bard.google.com/*",
+        "*://*.perplexity.ai/*",
+        "*://*.jasper.ai/*",
+        "*://*.character.ai/*",
+        "*://*.poe.com/*",
+        "*://*.huggingface.co/*",
+        "*://*.github.com/*",
+        "*://*.gitlab.com/*",
+        "*://*.bitbucket.org/*",
+        "*://*.gmail.com/*",
+        "*://*.outlook.com/*",
+        "*://*.office.com/*",
+        "*://*.stripe.com/*",
+        "*://*.paypal.com/*",
+        "*://*.venmo.com/*",
+        "*://*.cashapp.com/*",
+        "*://*.coinbase.com/*",
+        "*://*.binance.com/*",
+        "*://*.kraken.com/*",
+        "*://*.robinhood.com/*",
+        "*://*.chase.com/*",
+        "*://*.bankofamerica.com/*",
+        "*://*.wellsfargo.com/*",
+        "*://*.citi.com/*",
+        "*://*.capitalone.com/*",
+        "*://*.americanexpress.com/*",
+        "*://*.discover.com/*",
+        "*://*.fidelity.com/*",
+        "*://*.vanguard.com/*",
+        "*://*.schwab.com/*",
+        "*://*.etrade.com/*",
+        "*://*.tdameritrade.com/*",
+        "*://*.mint.com/*",
+        "*://*.quickbooks.com/*",
+        "*://*.turbotax.com/*",
+        "*://*.irs.gov/*",
+        "*://*.usa.gov/*",
+        "*://*.gov/*",
+        "*://*.mil/*",
+        "*://localhost/*",
+        "*://127.0.0.1/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles/content.css"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "*.js",
+        "*.chunk.js",
+        "styles/*.css",
+        "components/**/*.css",
+        "*.html",
+        "public/icons/*.png",
+        "assets/katex.min.css",
+        "assets/katex.min.js",
+        "assets/auto-render.min.js",
+        "assets/fonts/*",
+        "lib/highlight.min.js",
+        "lib/github.min.css",
+        "lib/github.scoped.min.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "options_page": "options.html"
+}

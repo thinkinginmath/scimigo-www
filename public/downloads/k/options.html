@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SciMigo AI Tutor - Options</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      color: #2196F3;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 10px;
+    }
+    .option-group {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    input[type="text"], 
+    input[type="password"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover {
+      background-color: #0b7dda;
+    }
+    .status {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 4px;
+      display: none;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    .info-box {
+      background-color: #e3f2fd;
+      border: 1px solid #bbdefb;
+      border-radius: 4px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    <img src="public/icons/icon128.png" alt="SciMigo logo" style="width:32px;height:32px;vertical-align:middle;margin-right:8px;">
+    SciMigo AI Tutor
+  </h1>
+  
+  <div class="info-box">
+    <h2>About This Extension</h2>
+    <p>SciMigo AI Tutor provides step-by-step help with math problems right in your browser.</p>
+  </div>
+  
+  
+  <div class="option-group">
+    <h2>Site Exclusions</h2>
+    <p>Manage where the SciMigo extension is active. The extension is automatically disabled on certain sites for security and compatibility reasons.</p>
+    
+    <h3>System-Protected Sites</h3>
+    <p style="font-size: 14px; color: #666; margin-bottom: 15px;">
+      These sites are permanently excluded for security and compatibility reasons and cannot be modified:
+    </p>
+    <div id="system-excluded-sites" style="background-color: #f5f5f5; padding: 10px; border-radius: 4px; margin-bottom: 20px; max-height: 200px; overflow-y: auto;">
+      <!-- System excluded sites will be listed here -->
+    </div>
+    
+    <h3>Your Custom Exclusions</h3>
+    <p style="font-size: 14px; color: #666; margin-bottom: 15px;">
+      Add sites where you don't want the SciMigo extension to be active:
+    </p>
+    <div id="user-excluded-sites">
+      <!-- User excluded sites will be listed here -->
+    </div>
+    <div style="margin-top: 10px;">
+      <input type="text" id="new-domain-input" placeholder="Enter domain (e.g., example.com)" style="width: 70%; margin-right: 10px;">
+      <button id="add-excluded-site">Add Site</button>
+    </div>
+    <div id="excluded-sites-status" class="status"></div>
+  </div>
+  
+  <script src="options.js"></script>
+</body>
+</html>
