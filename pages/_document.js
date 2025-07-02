@@ -5,7 +5,6 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
           content="SciMigo: Advanced AI-powered STEM tutor helping students master mathematics, computer science, algorithms, and more. Get personalized step-by-step explanations for high school and college level subjects."

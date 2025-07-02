@@ -18,7 +18,7 @@ export default function Home() {
               Master math, computer science, and algorithms with our advanced multi-agent AI system. 
               From calculus and linear algebra to data structures and complexity analysis, get personalized step-by-step explanations.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
                 href="https://app.scimigo.com/"
                 target="_blank"
@@ -36,9 +36,21 @@ export default function Home() {
               >
                 🚀 Start Learning Now!
               </a>
-              <div className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium rounded-md border border-muted text-muted-foreground">
-                Chrome Extension - Coming Soon
-              </div>
+              <a
+                href="/chrome-extension-beta"
+                className="inline-flex items-center justify-center px-6 py-3 text-lg font-medium rounded-md border border-primary text-primary hover:bg-primary/10 transition-colors"
+                onClick={() => {
+                  if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click_extension_beta', {
+                      event_category: 'engagement',
+                      event_label: 'hero_chrome_extension',
+                      value: 1
+                    });
+                  }
+                }}
+              >
+                🧪 Try Chrome Extension Beta
+              </a>
             </div>
           </div>
         </section>
