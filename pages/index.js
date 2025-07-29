@@ -11,12 +11,11 @@ export default function Home() {
         {/* Hero Section */}
         <section className="relative py-24 px-6">
           <div className="max-w-6xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-              Your AI-Powered STEM Tutor
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-pink-500 bg-clip-text text-transparent">
+              Level Up Your STEM Skills
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Master math, computer science, and algorithms with our advanced multi-agent AI system. 
-              From calculus and linear algebra to data structures and complexity analysis, get personalized step-by-step explanations.
+              Get step-by-step help for math and coding from friendly AI tutors. Perfect for homework, projects and exams.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
@@ -34,7 +33,7 @@ export default function Home() {
                   }
                 }}
               >
-                🚀 Start Learning Now!
+                🚀 Let's Go!
               </a>
               <a
                 href="/chrome-extension-beta"
@@ -78,9 +77,9 @@ export default function Home() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-primary text-2xl">🤖</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-4">AI Agents Analyze</h3>
+                <h3 className="text-xl font-semibold mb-4">Smart AI Helpers</h3>
                 <p className="text-muted-foreground">
-                  Specialized agents for math, CS, and algorithms collaborate to determine the optimal solution approach.
+                  Our AI helpers team up behind the scenes to figure out the best way to solve your question.
                 </p>
               </div>
               <div className="text-center">
@@ -89,7 +88,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold mb-4">Learn & Understand</h3>
                 <p className="text-muted-foreground">
-                  Get detailed explanations with computational examples, choose hints or full solutions, and track your progress.
+                  Pick hints or full solutions and see easy-to-follow explanations with examples.
                 </p>
               </div>
             </div>
@@ -138,9 +137,9 @@ export default function Home() {
         {/* CTA Section */}
         <section className="py-20 px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Master STEM Subjects Today</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Level Up?</h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Experience the power of AI-driven STEM tutoring. Get step-by-step solutions for math, computer science, and algorithm problems.
+              Jump in and get instant, step-by-step answers for math and coding questions.
             </p>
             <a
               href="https://app.scimigo.com/"
@@ -157,7 +156,7 @@ export default function Home() {
                 }
               }}
             >
-              🚀 Try SciMigo Now!
+              🚀 Try it Free!
             </a>
             <p className="text-sm text-muted-foreground mt-4">
               Experience AI-powered STEM tutoring today

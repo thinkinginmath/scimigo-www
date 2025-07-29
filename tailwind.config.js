@@ -50,6 +50,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
+          "Poppins",
           "system-ui",
           "-apple-system",
           "BlinkMacSystemFont",
