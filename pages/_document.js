@@ -5,6 +5,9 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <meta charSet="UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
         <meta
           name="description"
           content="SciMigo: Advanced AI-powered STEM tutor helping students master mathematics, computer science, algorithms, and more. Get personalized step-by-step explanations for high school and college level subjects."

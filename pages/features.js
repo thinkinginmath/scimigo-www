@@ -7,11 +7,11 @@ export default function Features() {
         {/* Hero Section */}
         <section className="relative py-20 px-6">
           <div className="max-w-6xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-              Powerful STEM Learning Features
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-pink-500 bg-clip-text text-transparent">
+              Awesome Tools to Crush STEM Subjects
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Experience the next generation of AI-powered tutoring with our advanced multi-agent system designed specifically for STEM education.
+              Get instant explanations and step-by-step solutions from our specialized AI tutors.
             </p>
           </div>
         </section>
@@ -22,7 +22,7 @@ export default function Features() {
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Intelligent Multi-Agent System</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Our advanced router analyzes your problem and selects the optimal specialized agent for the most accurate and efficient solution.
+                Our smart router picks the best AI tutor for your question so you get answers fast.
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -183,9 +183,9 @@ export default function Features() {
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Comprehensive Subject Coverage</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Subjects We Cover</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                From foundational concepts to advanced topics across mathematics and computer science.
+                From basics to advanced topics across math and computer science.
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
