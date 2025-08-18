@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block Next.js internal routes
+Disallow: /blog/[slug]
+Disallow: /_next/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://www.scimigo.com/sitemap.xml

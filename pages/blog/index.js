@@ -2,11 +2,16 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import Link from 'next/link';
+import Head from 'next/head';
 import Layout from '../../components/Layout';
 
 export default function Blog({ posts }) {
   return (
     <Layout>
+      <Head>
+        <title>Blog - SciMigo</title>
+        <link rel="canonical" href="https://www.scimigo.com/blog" />
+      </Head>
       <main className="max-w-4xl mx-auto px-6 py-16">
         <header className="mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Blog</h1>

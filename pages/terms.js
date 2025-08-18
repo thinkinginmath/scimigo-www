@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Layout from '../components/Layout';
 import styles from '../styles/Legal.module.css';
 
@@ -7,6 +8,9 @@ export default function Terms() {
       title="Terms of Service - SciMigo" 
       description="SciMigo Terms of Service - Understand your rights and responsibilities when using our platform"
     >
+      <Head>
+        <link rel="canonical" href="https://www.scimigo.com/terms" />
+      </Head>
       <div className={styles.container}>
         <div className={styles.content}>
           <h1 className={styles.title}>Terms of Service</h1>

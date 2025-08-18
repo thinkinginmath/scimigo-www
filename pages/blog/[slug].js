@@ -3,11 +3,16 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
+import Head from 'next/head';
 import Layout from '../../components/Layout';
 
 export default function BlogPost({ post, content }) {
   return (
     <Layout>
+      <Head>
+        <title>{post.title} - SciMigo Blog</title>
+        <link rel="canonical" href={`https://www.scimigo.com/blog/${post.slug}`} />
+      </Head>
       <main className="max-w-4xl mx-auto px-6 py-16">
         <article>
           <header className="mb-8">

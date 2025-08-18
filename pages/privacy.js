@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Layout from '../components/Layout';
 import styles from '../styles/Legal.module.css';
 
@@ -7,6 +8,9 @@ export default function Privacy() {
       title="Privacy Policy - SciMigo" 
       description="SciMigo Privacy Policy - Learn how we collect, use, and protect your data"
     >
+      <Head>
+        <link rel="canonical" href="https://www.scimigo.com/privacy" />
+      </Head>
       <div className={styles.container}>
         <div className={styles.content}>
           <h1 className={styles.title}>Privacy Policy</h1>

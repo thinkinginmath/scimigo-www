@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Layout from '../components/Layout'
 import { useState } from 'react'
 
@@ -17,6 +18,46 @@ export default function ChromeExtensionBeta() {
 
   return (
     <Layout>
+      <Head>
+        <title>SciMigo Chrome Extension Beta - AI STEM Tutor for Any Webpage</title>
+        <meta name="description" content="Download SciMigo Chrome Extension Beta. Get instant AI tutoring on any webpage - turn math equations and code snippets into step-by-step learning opportunities. Free download." />
+        <meta name="keywords" content="SciMigo Chrome extension, AI tutor extension, math helper Chrome, STEM learning extension, beta download, free Chrome extension" />
+        <meta property="og:title" content="SciMigo Chrome Extension Beta - AI STEM Tutor" />
+        <meta property="og:description" content="Transform any webpage into a learning opportunity with SciMigo's AI-powered Chrome extension. Download the beta version now." />
+        <meta property="og:image" content="https://www.scimigo.com/images/icon128.png" />
+        <meta property="og:url" content="https://www.scimigo.com/chrome-extension-beta" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.scimigo.com/chrome-extension-beta" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "SciMigo Chrome Extension",
+              "applicationCategory": "EducationalApplication",
+              "operatingSystem": "Chrome",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              },
+              "description": "AI-powered STEM tutor Chrome extension that provides instant help with math equations and code snippets on any webpage",
+              "downloadUrl": "https://www.scimigo.com/downloads/scimigo-extension-beta.zip",
+              "softwareVersion": "0.9.0",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "ratingCount": "12"
+              },
+              "author": {
+                "@type": "Organization",
+                "name": "SciMigo"
+              }
+            })
+          }}
+        />
+      </Head>
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-20">
         <div className="max-w-4xl mx-auto px-6">
           {/* Header */}

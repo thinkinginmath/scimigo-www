@@ -41,7 +41,6 @@ export default function Document() {
         <meta name="twitter:image" content="https://www.scimigo.com/images/icon128.png" />
         <meta name="twitter:site" content="@SciMigo" />
         <meta name="twitter:creator" content="@SciMigo" />
-        <link rel="canonical" href="https://www.scimigo.com/" />
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-14SDL384KV"></script>
         <script

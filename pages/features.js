@@ -1,8 +1,13 @@
+import Head from 'next/head';
 import Layout from '../components/Layout';
 
 export default function Features() {
   return (
     <Layout>
+      <Head>
+        <title>Features - SciMigo AI STEM Tutor</title>
+        <link rel="canonical" href="https://www.scimigo.com/features" />
+      </Head>
       <main>
         {/* Hero Section */}
         <section className="relative py-20 px-6">
