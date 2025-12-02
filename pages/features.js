@@ -1,23 +1,75 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import Layout from '../components/Layout';
 
 export default function Features() {
   return (
     <Layout>
       <Head>
-        <title>Features - SciMigo AI STEM Tutor</title>
+        <title>Features - SciMigo AI Math Education</title>
         <link rel="canonical" href="https://www.scimigo.com/features" />
       </Head>
       <main>
         {/* Hero Section */}
         <section className="relative py-20 px-6">
           <div className="max-w-6xl mx-auto text-center">
+            <div className="inline-block mb-4 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
+              <span className="text-primary font-semibold text-sm">🚀 Launching January 2025</span>
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-pink-500 bg-clip-text text-transparent">
-              Awesome Tools to Crush STEM Subjects
+              Revolutionary AI-Powered Math Education
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Get instant explanations and step-by-step solutions from our specialized AI tutors.
+              From AI-generated curriculum to personalized tutoring—discover the technology powering the future of learning.
             </p>
+            <Link
+              href="/classes"
+              className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+            >
+              Join Waitlist
+            </Link>
+          </div>
+        </section>
+
+        {/* Mini Lecture Pipeline */}
+        <section className="py-16 px-6 bg-gradient-to-br from-blue-50 to-purple-50">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">AI-Generated Curriculum</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Our proprietary Mini Lecture Pipeline creates complete educational experiences automatically
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="p-6 rounded-xl bg-white border shadow-sm">
+                <div className="text-4xl mb-3">📝</div>
+                <h3 className="font-bold mb-2">Structured Lessons</h3>
+                <p className="text-sm text-muted-foreground">
+                  AI generates validated lesson specifications with slides, narration, and educational metadata
+                </p>
+              </div>
+              <div className="p-6 rounded-xl bg-white border shadow-sm">
+                <div className="text-4xl mb-3">🎨</div>
+                <h3 className="font-bold mb-2">Professional Slides</h3>
+                <p className="text-sm text-muted-foreground">
+                  Reveal.js presentations with LaTeX math rendering, diagrams, and fragment animations
+                </p>
+              </div>
+              <div className="p-6 rounded-xl bg-white border shadow-sm">
+                <div className="text-4xl mb-3">🎙️</div>
+                <h3 className="font-bold mb-2">Synchronized Narration</h3>
+                <p className="text-sm text-muted-foreground">
+                  High-quality text-to-speech with per-fragment audio synchronized to slide animations
+                </p>
+              </div>
+              <div className="p-6 rounded-xl bg-white border shadow-sm">
+                <div className="text-4xl mb-3">🎬</div>
+                <h3 className="font-bold mb-2">Automated Video</h3>
+                <p className="text-sm text-muted-foreground">
+                  End-to-end video generation with synchronized audio and visual transitions
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -279,30 +331,20 @@ export default function Features() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-6">
+        <section className="py-20 px-6 bg-gradient-to-r from-primary to-purple-600 text-white">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Experience the Future of STEM Learning</h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Join thousands of students already using SciMigo to master mathematics and computer science.
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Math Education?</h2>
+            <p className="text-lg mb-8 opacity-90">
+              Join the waitlist for early access to AI-powered online classes launching January 2025.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://chromewebstore.google.com/detail/ogpfnkaiaagfgalomgkooidacamanhdg?utm_source=item-share-cb"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-              >
-                Get Chrome Extension
-              </a>
-              <a
-                href="/blog"
-                className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium rounded-md border border-muted text-muted-foreground hover:bg-muted/50 transition-colors"
-              >
-                Learn More
-              </a>
-            </div>
-            <p className="text-sm text-muted-foreground mt-4">
-              No credit card required • Full access to all features
+            <Link
+              href="/classes"
+              className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold rounded-md bg-white text-primary hover:bg-gray-100 transition-colors shadow-xl"
+            >
+              Join Waitlist
+            </Link>
+            <p className="text-sm mt-6 opacity-75">
+              Early bird pricing available • Limited spots
             </p>
           </div>
         </section>

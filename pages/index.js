@@ -1,224 +1,261 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import Layout from '../components/Layout';
 
 export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>SciMigo - AI-Powered STEM Tutor | Math, Computer Science & Algorithms</title>
-        <meta name="description" content="Get instant AI tutoring for math, computer science, and algorithms. Highlight any equation or code snippet for step-by-step explanations. Free Chrome extension available." />
-        <meta name="keywords" content="AI tutor, STEM education, math help, computer science, algorithms, calculus, data structures, coding help, homework help" />
+        <title>SciMigo - AI-Powered Math Education | Personalized Online Classes</title>
+        <meta name="description" content="Revolutionary AI-powered math education platform. Personalized online classes with AI-generated curriculum, interactive mini-lectures, and intelligent tutoring. Coming January 2025." />
+        <meta name="keywords" content="AI education, math classes, online learning, personalized tutoring, AI curriculum, interactive lectures, STEM education" />
         <meta name="author" content="SciMigo" />
-        
+
         {/* Open Graph Meta Tags */}
-        <meta property="og:title" content="SciMigo - AI-Powered STEM Tutor | Math, Computer Science & Algorithms" />
-        <meta property="og:description" content="Get instant AI tutoring for math, computer science, and algorithms. Highlight any equation or code snippet for step-by-step explanations. Free Chrome extension available." />
+        <meta property="og:title" content="SciMigo - AI-Powered Math Education" />
+        <meta property="og:description" content="Revolutionary AI-powered math education with personalized classes and AI-generated curriculum. Join the waitlist for early access." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.scimigo.com/" />
         <meta property="og:image" content="https://www.scimigo.com/images/og-image.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="SciMigo AI-Powered STEM Tutor - Math, CS, Algorithms" />
         <meta property="og:site_name" content="SciMigo" />
-        <meta property="og:locale" content="en_US" />
-        
+
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="SciMigo - AI-Powered STEM Tutor | Math, Computer Science & Algorithms" />
-        <meta name="twitter:description" content="Get instant AI tutoring for math, computer science, and algorithms. Highlight any equation or code snippet for step-by-step explanations. Free Chrome extension available." />
+        <meta name="twitter:title" content="SciMigo - AI-Powered Math Education" />
+        <meta name="twitter:description" content="Revolutionary AI-powered math education with personalized classes." />
         <meta name="twitter:image" content="https://www.scimigo.com/images/og-image.png" />
-        <meta name="twitter:image:alt" content="SciMigo AI-Powered STEM Tutor - Math, CS, Algorithms" />
-        
-        {/* Additional SEO Meta Tags */}
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+        <meta name="robots" content="index, follow" />
         <meta name="theme-color" content="#3b82f6" />
         <link rel="canonical" href="https://www.scimigo.com/" />
-        
+
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": "EducationalOrganization",
               "name": "SciMigo",
-              "description": "AI-Powered STEM Tutor for Math, Computer Science & Algorithms",
+              "description": "AI-powered math education platform with personalized online classes",
               "url": "https://www.scimigo.com",
-              "logo": "https://www.scimigo.com/images/icon128.png",
-              "sameAs": [
-                "https://chromewebstore.google.com/detail/ogpfnkaiaagfgalomgkooidacamanhdg"
-              ],
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "customer service",
-                "email": "info@scimigo.com"
-              },
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD",
-                "description": "Free AI tutoring service"
-              }
-            })
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebApplication",
-              "name": "SciMigo Chrome Extension",
-              "description": "AI-powered tutoring browser extension for STEM subjects including mathematics, computer science, and algorithms",
-              "url": "https://chromewebstore.google.com/detail/ogpfnkaiaagfgalomgkooidacamanhdg",
-              "applicationCategory": "EducationalApplication",
-              "operatingSystem": "Chrome Browser",
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-              },
-              "author": {
-                "@type": "Organization",
-                "name": "SciMigo"
-              }
+              "logo": "https://www.scimigo.com/images/icon128.png"
             })
           }}
         />
       </Head>
       <main>
         {/* Hero Section */}
-        <section className="relative py-24 px-6">
+        <section className="relative py-24 px-6 overflow-hidden">
           <div className="max-w-6xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-pink-500 bg-clip-text text-transparent">
-              AI-Powered STEM Tutor
+            <div className="inline-block mb-4 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
+              <span className="text-primary font-semibold text-sm">🚀 Launching January 2025</span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              The Future of Math Education
             </h1>
-            <div className="bg-primary/10 border border-primary/20 rounded-lg px-6 py-4 max-w-3xl mx-auto mb-8">
-              <p className="text-lg text-primary font-semibold text-center">
-                🎯 Making high-quality AI tutoring accessible to everyone, everywhere
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="https://chromewebstore.google.com/detail/ogpfnkaiaagfgalomgkooidacamanhdg?utm_source=item-share-cb"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-                onClick={() => {
-                  if (typeof gtag !== 'undefined') {
-                    gtag('event', 'click_chrome_extension', {
-                      event_category: 'engagement',
-                      event_label: 'hero_chrome_extension',
-                      value: 1
-                    });
-                  }
-                }}
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8">
+              AI-powered personalized online classes with interactive mini-lectures, intelligent tutoring, and curriculum that adapts to you.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+              <Link
+                href="/classes"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shadow-lg"
               >
-                🔗 Get Chrome Extension
-              </a>
+                Join Waitlist
+              </Link>
+              <Link
+                href="/features"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-md border-2 border-primary text-primary hover:bg-primary/10 transition-colors"
+              >
+                Learn More
+              </Link>
             </div>
+            <p className="text-sm text-muted-foreground">
+              Early bird pricing available • Limited spots
+            </p>
           </div>
         </section>
 
-        {/* Chrome Extension Showcase */}
-        <section className="py-20 px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Get Instant Help on Any Webpage</h2>
+        {/* What We're Building */}
+        <section className="py-20 px-6 bg-muted/30">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">What Makes SciMigo Different</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Highlight any math equation or code snippet. Get AI-powered explanations instantly.
+                Not just videos. Not just problem sets. A complete AI-powered learning experience.
               </p>
             </div>
-            <a
-              href="https://chromewebstore.google.com/detail/ogpfnkaiaagfgalomgkooidacamanhdg?utm_source=item-share-cb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block bg-white rounded-xl shadow-lg overflow-hidden max-w-3xl mx-auto hover:shadow-xl transition-shadow cursor-pointer"
-              onClick={() => {
-                if (typeof gtag !== 'undefined') {
-                  gtag('event', 'click_chrome_extension', {
-                    event_category: 'engagement',
-                    event_label: 'banner_image_click',
-                    value: 1
-                  });
-                }
-              }}
-            >
-              <img
-                src="/images/scimigo-tutor.png"
-                alt="SciMigo Chrome Extension in action - AI tutoring on any webpage"
-                className="w-full h-auto"
-              />
-            </a>
-          </div>
-        </section>
-
-        {/* Features Section */}
-        <section className="py-20 px-6 bg-muted/30">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">How It Works</h2>
-            <div className="grid md:grid-cols-3 gap-12">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-primary text-2xl">📝</span>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="p-8 rounded-xl bg-card border-2 border-transparent hover:border-primary transition-all">
+                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                  <span className="text-3xl">🎬</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-4">Ask Any Question</h3>
+                <h3 className="text-xl font-bold mb-3">AI-Generated Curriculum</h3>
                 <p className="text-muted-foreground">
-                  Math, algorithms, or code - we've got you covered
+                  Interactive mini-lectures with professional slides, synchronized narration, and LaTeX-rendered equations. Generated on-demand for any math topic.
                 </p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-primary text-2xl">🤖</span>
+              <div className="p-8 rounded-xl bg-card border-2 border-transparent hover:border-primary transition-all">
+                <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                  <span className="text-3xl">🤖</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-4">AI Analyzes</h3>
+                <h3 className="text-xl font-bold mb-3">Personalized Ask AI</h3>
                 <p className="text-muted-foreground">
-                  Multi-agent system finds the best solution approach
+                  Stuck on a problem? Get instant AI tutoring tailored to your learning style. Hints, solutions, or step-by-step explanations—you choose.
                 </p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-primary text-2xl">🎓</span>
+              <div className="p-8 rounded-xl bg-card border-2 border-transparent hover:border-primary transition-all">
+                <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                  <span className="text-3xl">📊</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-4">Learn Your Way</h3>
+                <h3 className="text-xl font-bold mb-3">Adaptive Learning Path</h3>
                 <p className="text-muted-foreground">
-                  Choose hints, full solutions, or step-by-step tutorials
+                  Content that adapts to your progress. Master concepts at your own pace with intelligent difficulty adjustment and personalized recommendations.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Subject Areas Section */}
+        {/* How It Works */}
         <section className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What We Teach</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="p-6 rounded-lg border bg-card hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold mb-3 text-blue-600">📊 Mathematics</h3>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• Calculus & Analysis</li>
-                  <li>• Linear Algebra</li>
-                  <li>• Differential Equations</li>
-                  <li>• Statistics & Probability</li>
+            <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">How It Works</h2>
+            <div className="space-y-16">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <div className="inline-block mb-4 px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
+                    Step 1
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Watch Interactive Mini-Lectures</h3>
+                  <p className="text-lg text-muted-foreground mb-4">
+                    Engage with professionally-designed slide presentations featuring synchronized narration, LaTeX math rendering, and fragment-by-fragment explanations.
+                  </p>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• Progressive disclosure for better comprehension</li>
+                    <li>• Visual diagrams and animations</li>
+                    <li>• Pause and review at your own pace</li>
+                  </ul>
+                </div>
+                <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border-2 border-blue-200">
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">📐</div>
+                    <p className="font-mono text-lg text-muted-foreground">∫ f(x) dx = F(x) + C</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="order-2 md:order-1 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border-2 border-purple-200">
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">💬</div>
+                    <p className="text-muted-foreground">AI tutor available 24/7</p>
+                  </div>
+                </div>
+                <div className="order-1 md:order-2">
+                  <div className="inline-block mb-4 px-4 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">
+                    Step 2
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Ask Your Personal AI Tutor</h3>
+                  <p className="text-lg text-muted-foreground mb-4">
+                    Get instant help when you're stuck. Our AI understands your question and provides explanations tailored to your level.
+                  </p>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• Choose your learning mode: hints, solutions, or tutorials</li>
+                    <li>• Context-aware explanations based on lecture content</li>
+                    <li>• Natural conversation interface</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <div className="inline-block mb-4 px-4 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">
+                    Step 3
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Master Concepts at Your Pace</h3>
+                  <p className="text-lg text-muted-foreground mb-4">
+                    Progress through carefully structured curriculum designed by educators, powered by AI that adapts to your learning journey.
+                  </p>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• Track your progress and achievements</li>
+                    <li>• Review past lectures anytime</li>
+                    <li>• Build deep understanding, not just memorization</li>
+                  </ul>
+                </div>
+                <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-8 border-2 border-green-200">
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">🎯</div>
+                    <p className="text-muted-foreground">Your personalized learning path</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Topics Covered */}
+        <section className="py-20 px-6 bg-muted/30">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">Topics We Cover</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="p-6 rounded-xl bg-card border hover:shadow-lg transition-shadow">
+                <div className="text-3xl mb-3">📐</div>
+                <h3 className="font-bold mb-2">Calculus</h3>
+                <p className="text-sm text-muted-foreground">Limits, derivatives, integrals, series</p>
+              </div>
+              <div className="p-6 rounded-xl bg-card border hover:shadow-lg transition-shadow">
+                <div className="text-3xl mb-3">🔢</div>
+                <h3 className="font-bold mb-2">Linear Algebra</h3>
+                <p className="text-sm text-muted-foreground">Matrices, eigenvalues, vector spaces</p>
+              </div>
+              <div className="p-6 rounded-xl bg-card border hover:shadow-lg transition-shadow">
+                <div className="text-3xl mb-3">🎲</div>
+                <h3 className="font-bold mb-2">Probability</h3>
+                <p className="text-sm text-muted-foreground">Statistics, distributions, inference</p>
+              </div>
+              <div className="p-6 rounded-xl bg-card border hover:shadow-lg transition-shadow">
+                <div className="text-3xl mb-3">🔗</div>
+                <h3 className="font-bold mb-2">Discrete Math</h3>
+                <p className="text-sm text-muted-foreground">Combinatorics, graph theory, proofs</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Technology Behind It */}
+        <section className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Powered by Advanced AI</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Built on cutting-edge technology developed through years of educational content creation
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="p-6 rounded-xl border-2 border-muted">
+                <h3 className="text-xl font-bold mb-3">🎬 Mini Lecture Pipeline</h3>
+                <p className="text-muted-foreground mb-4">
+                  Our proprietary system automatically generates complete educational lectures with slides, narration, and video—all from a simple topic description.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>• Structured lesson specifications with validated schemas</li>
+                  <li>• Professional Reveal.js presentations with KaTeX math</li>
+                  <li>• High-quality text-to-speech narration</li>
+                  <li>• Synchronized video generation with fragment animations</li>
                 </ul>
               </div>
-              <div className="p-6 rounded-lg border bg-card hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold mb-3 text-green-600">💻 Computer Science</h3>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• Data Structures</li>
-                  <li>• Algorithm Analysis</li>
-                  <li>• Complexity Theory</li>
-                  <li>• Discrete Mathematics</li>
-                </ul>
-              </div>
-              <div className="p-6 rounded-lg border bg-card hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold mb-3 text-purple-600">⚡ Algorithms</h3>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• Sorting & Searching</li>
-                  <li>• Graph Algorithms</li>
-                  <li>• Dynamic Programming</li>
-                  <li>• Optimization Problems</li>
+              <div className="p-6 rounded-xl border-2 border-muted">
+                <h3 className="text-xl font-bold mb-3">🤖 Intelligent Tutoring System</h3>
+                <p className="text-muted-foreground mb-4">
+                  Multi-agent AI architecture that routes problems to specialized solvers and adapts explanations to your learning style.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>• Context-aware tutoring based on lecture content</li>
+                  <li>• Multiple learning modes (hints, solutions, tutorials)</li>
+                  <li>• Natural language understanding of math problems</li>
+                  <li>• Step-by-step reasoning with LaTeX formatting</li>
                 </ul>
               </div>
             </div>
@@ -226,33 +263,41 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">Get the Chrome Extension</h2>
+        <section className="py-24 px-6 bg-gradient-to-r from-primary to-purple-600 text-white">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Join the Waitlist</h2>
+            <p className="text-xl mb-8 opacity-90">
+              Be among the first to experience the future of math education. Limited spots available for our January 2025 launch.
+            </p>
+            <Link
+              href="/classes"
+              className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold rounded-md bg-white text-primary hover:bg-gray-100 transition-colors shadow-xl"
+            >
+              Get Early Access
+            </Link>
+            <p className="text-sm mt-6 opacity-75">
+              No credit card required • Early bird pricing available
+            </p>
+          </div>
+        </section>
+
+        {/* Chrome Extension Note */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-muted-foreground mb-4">
+              While we prepare the online classes platform, try our Chrome Extension for instant AI tutoring on any webpage.
+            </p>
             <a
-              href="https://chromewebstore.google.com/detail/ogpfnkaiaagfgalomgkooidacamanhdg?utm_source=item-share-cb"
+              href="https://chromewebstore.google.com/detail/ogpfnkaiaagfgalomgkooidacamanhdg"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-              onClick={() => {
-                if (typeof gtag !== 'undefined') {
-                  gtag('event', 'click_chrome_extension', {
-                    event_category: 'engagement',
-                    event_label: 'cta_chrome_extension',
-                    value: 1
-                  });
-                }
-              }}
+              className="text-primary hover:underline font-medium"
             >
-              🔗 Install Extension
+              Get Chrome Extension →
             </a>
-            <p className="text-sm text-muted-foreground mt-4">
-              Free Chrome Extension • Get help on any webpage
-            </p>
           </div>
         </section>
       </main>
     </Layout>
   );
 }
-
