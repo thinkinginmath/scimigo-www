@@ -1,39 +1,13 @@
-import { useState } from 'react';
 import Head from 'next/head';
 import Layout from '../components/Layout';
 
+const DISCORD_INVITE = 'https://discord.gg/ebrPcMKg';
+
 export default function Classes() {
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Free Email Collection Options:
-    //
-    // Option 1: Google Forms (Recommended for simplicity)
-    // 1. Create a Google Form at forms.google.com with an email field
-    // 2. Click Send > Link icon to get the form URL
-    // 3. Replace the form below with: <a href="YOUR_GOOGLE_FORM_URL">Join Waitlist</a>
-    // 4. Or embed the form using the <iframe> embed code
-    //
-    // Option 2: Web3Forms (Free unlimited submissions)
-    // 1. Sign up at web3forms.com to get a free access key
-    // 2. Add this to the form: <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
-    // 3. Set form action to: https://api.web3forms.com/submit
-    // 4. Set method to "POST"
-    //
-    // Option 3: Formspree (50 free submissions/month)
-    // 1. Sign up at formspree.io
-    // 2. Set form action to: https://formspree.io/f/YOUR_FORM_ID
-    //
-    // For now, just show success message locally
-    console.log('Waitlist signup:', email);
-    setSubmitted(true);
-
+  const handleDiscordClick = () => {
     // Track with Google Analytics
     if (typeof gtag !== 'undefined') {
-      gtag('event', 'waitlist_signup', {
+      gtag('event', 'discord_join', {
         event_category: 'engagement',
         event_label: 'classes_page',
         value: 1
@@ -62,37 +36,23 @@ export default function Classes() {
               Experience the future of personalized education with AI-generated curriculum, interactive mini-lectures, and your own intelligent tutor.
             </p>
 
-            {!submitted ? (
-              <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    required
-                    className="flex-1 px-6 py-4 rounded-lg border-2 border-muted focus:border-primary focus:outline-none text-lg"
-                  />
-                  <button
-                    type="submit"
-                    className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-bold hover:bg-primary/90 transition-colors shadow-lg"
-                  >
-                    Join Waitlist
-                  </button>
-                </div>
-                <p className="text-sm text-muted-foreground mt-3">
-                  Be the first to know when we launch. No spam, ever.
-                </p>
-              </form>
-            ) : (
-              <div className="max-w-md mx-auto bg-green-50 border-2 border-green-200 rounded-lg p-6">
-                <div className="text-4xl mb-3">✅</div>
-                <h3 className="text-xl font-bold mb-2">You're on the list!</h3>
-                <p className="text-muted-foreground">
-                  We'll email you with early access details and exclusive launch offers.
-                </p>
-              </div>
-            )}
+            <div className="max-w-lg mx-auto">
+              <a
+                href={DISCORD_INVITE}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleDiscordClick}
+                className="flex items-center justify-center gap-3 px-8 py-5 bg-[#5865F2] hover:bg-[#4752C4] text-white rounded-lg font-bold text-lg transition-colors shadow-lg"
+              >
+                <svg width="24" height="24" viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z" fill="currentColor"/>
+                </svg>
+                Join Our Discord Community
+              </a>
+              <p className="text-sm text-muted-foreground mt-4 text-center">
+                Get early access updates, ask questions, and connect with other learners
+              </p>
+            </div>
           </div>
         </section>
 
@@ -269,36 +229,24 @@ export default function Classes() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Math Education?</h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Join {submitted ? 'other students' : 'the waitlist'} for early access and exclusive launch pricing.
+              Join our Discord community for early access and exclusive launch pricing.
             </p>
 
-            {!submitted ? (
-              <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    required
-                    className="flex-1 px-6 py-4 rounded-lg border-2 border-muted focus:border-primary focus:outline-none text-lg"
-                  />
-                  <button
-                    type="submit"
-                    className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-bold hover:bg-primary/90 transition-colors shadow-lg"
-                  >
-                    Join Waitlist
-                  </button>
-                </div>
-                <p className="text-sm text-muted-foreground mt-3">
-                  Limited early bird spots available
-                </p>
-              </form>
-            ) : (
-              <div className="text-lg text-green-600 font-semibold">
-                ✓ Thanks for joining! Check your email for updates.
-              </div>
-            )}
+            <a
+              href={DISCORD_INVITE}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleDiscordClick}
+              className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-[#5865F2] hover:bg-[#4752C4] text-white rounded-lg font-bold text-lg transition-colors shadow-xl"
+            >
+              <svg width="24" height="24" viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z" fill="currentColor"/>
+              </svg>
+              Join Discord Community
+            </a>
+            <p className="text-sm text-muted-foreground mt-4">
+              Limited early bird spots available
+            </p>
           </div>
         </section>
       </main>

@@ -98,11 +98,16 @@ Early bird members also get:
 - Input on future course topics
 - Exclusive community access
 
-## Join the Waitlist
+## Join Our Community
 
-We're launching in **January 2026**. Spots are limited for the first cohort as we ensure a high-quality experience for every student.
+We're launching in **January 2026**. Join our **Discord community** to:
+- Get early access to course content
+- Connect with other learners
+- Ask questions and get answers
+- Influence future course topics
+- Receive exclusive launch updates
 
-**[Join the waitlist now](/classes)** to secure your early bird pricing and be among the first to experience the future of math education.
+**[Join our Discord](https://discord.gg/ebrPcMKg)** or **[learn more about the classes](/classes)** to be among the first to experience the future of math education.
 
 ## What About the Chrome Extension?
 
@@ -121,14 +126,15 @@ Each course will leverage the same AI-powered curriculum generation and intellig
 ## Stay Connected
 
 Follow our journey as we revolutionize math education:
-- Join the [waitlist for early access](/classes)
+- **[Join our Discord community](https://discord.gg/ebrPcMKg)** - Get updates and connect with learners
+- Learn more about [online classes](/classes)
 - Read updates on this blog
 - Try our [Chrome Extension](https://chromewebstore.google.com/detail/ogpfnkaiaagfgalomgkooidacamanhdg)
 - Follow [Thinking in Math on YouTube](https://www.youtube.com/channel/UC5uV1LcSkHL5zCxKBikdTEg)
 
 We believe that high-quality math education should be accessible to everyone. AI makes this possible—not by replacing human instruction, but by scaling the personalized attention that makes great teaching effective.
 
-**Ready to transform your math education?** [Join the waitlist](/classes) today.
+**Ready to transform your math education?** [Join our Discord](https://discord.gg/ebrPcMKg) or [learn more about classes](/classes) today.
 
 ---
 
