@@ -2,6 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
+  basePath: '/scimigo-www',
+  assetPrefix: '/scimigo-www/',
   trailingSlash: true,
   images: {
     unoptimized: true
