@@ -7,7 +7,7 @@ export default function Home() {
     <Layout>
       <Head>
         <title>SciMigo - AI-Powered Math Education | Personalized Online Classes</title>
-        <meta name="description" content="Revolutionary AI-powered math education platform. Personalized online classes with AI-generated curriculum, interactive mini-lectures, and intelligent tutoring. Coming January 2025." />
+        <meta name="description" content="Revolutionary AI-powered math education platform. Personalized online classes with AI-generated curriculum, interactive mini-lectures, and intelligent tutoring. Coming January 2026." />
         <meta name="keywords" content="AI education, math classes, online learning, personalized tutoring, AI curriculum, interactive lectures, STEM education" />
         <meta name="author" content="SciMigo" />
 
@@ -49,7 +49,7 @@ export default function Home() {
         <section className="relative py-24 px-6 overflow-hidden">
           <div className="max-w-6xl mx-auto text-center">
             <div className="inline-block mb-4 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
-              <span className="text-primary font-semibold text-sm">🚀 Launching January 2025</span>
+              <span className="text-primary font-semibold text-sm">🚀 Launching January 2026</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
               The Future of Math Education
@@ -267,7 +267,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Join the Waitlist</h2>
             <p className="text-xl mb-8 opacity-90">
-              Be among the first to experience the future of math education. Limited spots available for our January 2025 launch.
+              Be among the first to experience the future of math education. Limited spots available for our January 2026 launch.
             </p>
             <Link
               href="/classes"

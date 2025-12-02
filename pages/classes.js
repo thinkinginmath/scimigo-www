@@ -9,8 +9,25 @@ export default function Classes() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // TODO: Integrate with actual email service (Mailchimp, ConvertKit, etc.)
-    // For now, just show success message
+    // Free Email Collection Options:
+    //
+    // Option 1: Google Forms (Recommended for simplicity)
+    // 1. Create a Google Form at forms.google.com with an email field
+    // 2. Click Send > Link icon to get the form URL
+    // 3. Replace the form below with: <a href="YOUR_GOOGLE_FORM_URL">Join Waitlist</a>
+    // 4. Or embed the form using the <iframe> embed code
+    //
+    // Option 2: Web3Forms (Free unlimited submissions)
+    // 1. Sign up at web3forms.com to get a free access key
+    // 2. Add this to the form: <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+    // 3. Set form action to: https://api.web3forms.com/submit
+    // 4. Set method to "POST"
+    //
+    // Option 3: Formspree (50 free submissions/month)
+    // 1. Sign up at formspree.io
+    // 2. Set form action to: https://formspree.io/f/YOUR_FORM_ID
+    //
+    // For now, just show success message locally
     console.log('Waitlist signup:', email);
     setSubmitted(true);
 
@@ -28,7 +45,7 @@ export default function Classes() {
     <Layout>
       <Head>
         <title>Online Classes - SciMigo AI Math Education</title>
-        <meta name="description" content="Join the waitlist for SciMigo's AI-powered personalized math classes. Interactive mini-lectures, intelligent tutoring, and adaptive curriculum. Launching January 2025." />
+        <meta name="description" content="Join the waitlist for SciMigo's AI-powered personalized math classes. Interactive mini-lectures, intelligent tutoring, and adaptive curriculum. Launching January 2026." />
         <link rel="canonical" href="https://www.scimigo.com/classes" />
       </Head>
       <main>
@@ -36,7 +53,7 @@ export default function Classes() {
         <section className="relative py-20 px-6 bg-gradient-to-br from-primary/5 via-purple-50 to-pink-50">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-block mb-4 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
-              <span className="text-primary font-semibold text-sm">🚀 Launching January 2025</span>
+              <span className="text-primary font-semibold text-sm">🚀 Launching January 2026</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               AI-Powered Math Classes
@@ -212,7 +229,7 @@ export default function Classes() {
               <div className="p-6 rounded-xl bg-card border">
                 <h3 className="font-bold text-lg mb-2">When will classes be available?</h3>
                 <p className="text-muted-foreground">
-                  We're launching in January 2025. Waitlist members will get early access and exclusive launch pricing.
+                  We're launching in January 2026. Waitlist members will get early access and exclusive launch pricing.
                 </p>
               </div>
 

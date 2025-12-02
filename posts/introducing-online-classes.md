@@ -100,7 +100,7 @@ Early bird members also get:
 
 ## Join the Waitlist
 
-We're launching in **January 2025**. Spots are limited for the first cohort as we ensure a high-quality experience for every student.
+We're launching in **January 2026**. Spots are limited for the first cohort as we ensure a high-quality experience for every student.
 
 **[Join the waitlist now](/classes)** to secure your early bird pricing and be among the first to experience the future of math education.
 

@@ -14,7 +14,7 @@ export default function Features() {
         <section className="relative py-20 px-6">
           <div className="max-w-6xl mx-auto text-center">
             <div className="inline-block mb-4 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
-              <span className="text-primary font-semibold text-sm">🚀 Launching January 2025</span>
+              <span className="text-primary font-semibold text-sm">🚀 Launching January 2026</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-pink-500 bg-clip-text text-transparent">
               Revolutionary AI-Powered Math Education
@@ -335,7 +335,7 @@ export default function Features() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Math Education?</h2>
             <p className="text-lg mb-8 opacity-90">
-              Join the waitlist for early access to AI-powered online classes launching January 2025.
+              Join the waitlist for early access to AI-powered online classes launching January 2026.
             </p>
             <Link
               href="/classes"
