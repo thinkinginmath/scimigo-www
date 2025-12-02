@@ -10,7 +10,7 @@ export default function BlogPost({ post, content }) {
   return (
     <Layout>
       <Head>
-        <title>{post.title} - SciMigo Blog</title>
+        <title>{`${post.title} - SciMigo Blog`}</title>
         <link rel="canonical" href={`https://www.scimigo.com/blog/${post.slug}`} />
       </Head>
       <main className="max-w-4xl mx-auto px-6 py-16">

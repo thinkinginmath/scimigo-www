@@ -1,0 +1,401 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Concavity and AM-GM Inequality</title>
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reset.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/theme/dracula.css">
+
+		<!-- Theme used for syntax highlighted code --><!--color: #ba00ba!important;-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="m.css">
+		<style>
+		  /* Bigger base + headings (keeps dark theme) */
+		  .reveal {
+		    --r-main-font: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+		    --r-main-font-size: 36px;           /* Balanced base for presentations */
+		    --r-heading1-size: 2.8em;           /* H1 ~101px at base 36px */
+		    --r-heading2-size: 1.8em;           /* H2 ~65px at base 36px */ 
+		    --r-heading3-size: 1.4em;           /* H3 ~50px at base 36px */
+		    --r-code-font-size: 0.9em;
+		    --r-link-color: #69d5ff;
+		    --r-selection-background-color: #2b90d9;
+		    background: #282a36 !important;
+		    font-size: 36px !important;         /* Force larger base font */
+		  }
+
+		  /* Wider slide stage so content fills more of the screen */
+		  .reveal .slides {
+		    max-width: 1400px;                  /* increase from default ~960px */
+		  }
+
+		  /* Reduce outer margins so text uses the canvas */
+		  .reveal {
+		    --slide-h-padding: 40px;
+		  }
+		  .reveal .slides section {
+		    padding: 0 var(--slide-h-padding);
+		    font-size: 36px !important;         /* Ensure large base font for all slides */
+		  }
+
+		  /* Comfortable text blocks for paragraphs & lists */
+		  .reveal p, .reveal li {
+		    line-height: 1.35;
+		    letter-spacing: 0.1px;
+		    font-size: 1em !important;          /* Use the large base font */
+		    margin: 0.5em 0 !important;         /* Tighter paragraph spacing */
+		  }
+
+		  /* Math & display equations smaller relative to new large base */
+		  .reveal .katex-display, .reveal .math.display, .reveal .math.block {
+		    font-size: 0.9em;                   /* Smaller relative to large base */
+		    margin: 0.3em 0 0.4em;
+		  }
+
+		  /* Make illustrative images fill height nicely */
+		  .reveal img.r-stretch, .reveal .r-stretch > img {
+		    max-height: 70vh;                   /* leave room for a caption */
+		    margin: 0.4em auto 0.2em;
+		    display: block;
+		  }
+
+		  /* Utility classes you can add in HTML */
+		  .big   { font-size: 1.1em !important; }    /* Slightly bigger than base */
+		  .tight { line-height: 1.15; }
+		  .dim   { color: #b8c2cc; }
+		  
+			/* Set dark background for the entire presentation */
+			body {
+				background: #282a36 !important;
+				color: #f8f8f2 !important;
+			}
+			
+			.reveal .slides section.center {
+				text-align: center !important;
+			}
+			
+			/* Headings with better sizing and colors */
+			h1 {
+				color: #50fa7b !important;
+				font-weight: bold;
+				font-size: 2.8em !important;
+				text-align: center;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+			}
+			
+			h2 {
+				color: #bd93f9 !important;
+				font-weight: bold;
+				font-size: 1.8em !important;
+				margin-bottom: 0.6em;
+				line-height: 1.1;
+			}
+			
+			h3 {
+				color: #8be9fd !important;
+				font-size: 1.4em !important;
+				margin-bottom: 0.5em;
+				margin-top: 0.8em;
+			}
+			
+			/* Paragraph and text sizing */
+			p {
+				color: #f8f8f2 !important;
+			}
+			
+			/* List styling */
+			.reveal .slides section li {
+				color: #f8f8f2 !important;
+			}
+			
+			.colored {
+				color: #ff79c6!important;
+			}
+			
+			.white {
+				color: #f8f8f2!important;
+			}
+			
+			.center {
+				text-align: center!important;
+			}
+			
+			.center ul {
+				display: inline-block;
+				text-align: left;
+			}
+			
+			.highlight-box {
+				background: rgba(139, 233, 253, 0.1);
+				border: 2px solid #8be9fd;
+				border-radius: 10px;
+				padding: 1em;
+				margin: 0.6em auto;
+				max-width: 90%;
+			}
+			
+			.equation-large {
+				font-size: 1.1em!important;
+				margin: 0.5em auto!important;
+			}
+			
+			.equation-xl {
+				font-size: 1.3em!important;
+				margin: 0.5em auto!important;
+			}
+			
+			/* Strong text styling */
+			strong {
+				color: #ffb86c !important;
+				font-weight: bold;
+			}
+			
+			/* Fragment styling */
+			.fragment {
+				color: #f8f8f2 !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+		  <div class="slides">
+
+<section class="center" data-background-color="#0b1021" data-background-opacity="1">
+  <h1 class="r-fit-text" style="color:#fff; margin-bottom:0.3em;">Concavity of <span style="font-family:serif; color:#9ad1ff;">log</span></h1>
+  <h3 style="color:#9ad1ff; margin-top:0; font-size:1.4em;">Proving AM–GM via Jensen's Inequality</h3>
+  <div style="margin-top:2em;">
+    <p class="dim" style="color:#ddd; font-size:1.1em;">Quick • Visual • Rigorous</p>
+  </div>
+</section>
+
+<section>
+  <h2>The Log Function is Concave</h2>
+  <p class="big">The graph of \( \log x \) curves downward (concave)</p>
+  <div style="margin-top:1.5em;">
+    <img class="r-stretch" src="images/logx_concave.png" alt="Log x is concave">
+  </div>
+  <p class="big"><strong>Key property:</strong> Any chord lies <span style="color:#9ad1ff;">below</span> the curve</p>
+  <p class="big">The curve lies <span class="colored">above</span> any straight line connecting two points</p>
+</section>
+
+<section class="center">
+  <h2>Concave vs Convex Functions</h2>
+  <p class="big">A function is <span class="colored">concave</span> if it curves like a frown ⌢</p>
+  <p class="big">A function is <span style="color:#9ad1ff;">convex</span> if it curves like a smile ∪</p>
+  <div style="margin-top:1em; margin-bottom:0.5em;">
+    <img class="r-stretch" src="images/x2_logx.png" alt="Convex vs Concave comparison">
+  </div>
+  <p class="big"><strong>Compare:</strong> \( x^2 \) is convex (smile), \( \log x \) is concave (frown)</p>
+</section>
+
+<section class="center">
+  <h2>Why \( \log x \) is Concave</h2>
+  <p class="big dim">For those who know calculus:</p>
+  <div class="highlight-box big">
+    <p class="equation-large">\( \dfrac{d^2}{dx^2}\log x = -\dfrac{1}{x^2} \lt 0 \)</p>
+  </div>
+  <p class="big">Negative second derivative = <span class="colored">concave</span> function</p>
+  <p class="big"><strong>What this means:</strong><br/>The slope of \( \log x \) is always decreasing<br/>(gets flatter as x increases)</p>
+</section>
+
+<section class="center">
+  <h2>Geometric Picture <span style="color:#9ad1ff;">(Simple Case: n=2)</span></h2>
+  <p class="big">Take any two positive numbers \( x_1, x_2 > 0 \)</p>
+  <div class="big">
+    <p>On the curve \( y = \log x \), the point at the average \( \tfrac{x_1+x_2}{2} \)<br/>
+    lies <em style="color:#9ad1ff; font-size:1.2em;">above</em> the midpoint of the line segment<br/>
+    connecting \( (x_1,\log x_1) \) and \( (x_2,\log x_2) \)</p>
+  </div>
+  <div class="highlight-box big">
+    <p class="equation-large">\( \log\!\left(\tfrac{x_1+x_2}{2}\right) \ge \tfrac{\log x_1 + \log x_2}{2} \)</p>
+  </div>
+  <p class="big">This is exactly <span class="colored">AM ≥ GM</span> for two numbers!</p>
+</section>
+
+<section class="center">
+  <h2>Jensen's Inequality</h2>
+  <p class="big">For a concave function (like \( \log \)):</p>
+  <div class="highlight-box big">
+    <p>The function value at the <strong>average of points</strong><br/>
+    is ≥ the <strong>average of function values</strong></p>
+  </div>
+  <div class="fragment">
+    <p class="big">For \( n \) equal weights (\( \lambda_i = \tfrac{1}{n} \)):</p>
+    <div class="highlight-box big" style="background: rgba(154, 209, 255, 0.1); border-color: #9ad1ff;">
+      <p class="equation-large">\( f\!\left(\frac{x_1 + \cdots + x_n}{n}\right) \;\ge\; \frac{f(x_1) + \cdots + f(x_n)}{n} \)</p>
+    </div>
+  </div>
+</section>
+
+<section class="center">
+  <h2 style="color:#9ad1ff;">Proving AM–GM with Jensen</h2>
+  <p class="big">Step 1: Apply Jensen's inequality with \( f = \log \):</p>
+  <div class="highlight-box big">
+    <p class="equation-xl">\( \displaystyle
+    \log\!\left(\frac{x_1+\cdots+x_n}{n}\right) \;\ge\; \frac{\log x_1 + \cdots + \log x_n}{n}
+    \)</p>
+  </div>
+  <div class="fragment">
+    <p class="big">Step 2: Using \( \log(ab) = \log a + \log b \), the right side becomes:</p>
+    <div class="highlight-box big">
+      <p class="equation-xl">\( \displaystyle
+      \log\!\left(\frac{x_1+\cdots+x_n}{n}\right) \;\ge\; \log\big(x_1 \cdots x_n\big)^{1/n}
+      \)</p>
+    </div>
+  </div>
+</section>
+
+<section class="center">
+  <h2 style="color:#9ad1ff;">From Log to AM–GM</h2>
+
+  <div class="highlight-box big">
+    <p class="equation-xl">\( \displaystyle
+    \log\!\left(\frac{x_1+\cdots+x_n}{n}\right) \;\ge\; \log\big(x_1 \cdots x_n\big)^{1/n}
+    \)</p>
+  </div>
+  <div class="fragment">
+    <p class="big">Since \( e^x \) is increasing, we can exponentiate:</p>
+    <div class="highlight-box big" style="background: rgba(154, 209, 255, 0.1); border-color: #9ad1ff;">
+      <p class="equation-xl">\( \displaystyle
+      \underbrace{\frac{x_1+\cdots+x_n}{n}}_{\text{Arithmetic Mean}} \;\ge\; \underbrace{\big(x_1 \cdots x_n\big)^{1/n}}_{\text{Geometric Mean}}
+      \)</p>
+    </div>
+    <p class="big"><strong>That's AM–GM!</strong></p>
+  </div>
+</section>
+
+<section class="center">
+  <h2>When Are They Equal?</h2>
+  <div class="highlight-box big">
+    <p class="big"><strong style="color:#ba00ba;">Equality happens if and only if</strong><br/>
+    all the numbers are the same!</p>
+    <p class="equation-xl">\( x_1 = x_2 = \cdots = x_n \)</p>
+  </div>
+  <p class="big"><strong>Intuition:</strong> The curve \( \log x \) touches a straight line<br/>
+  only when all points coincide (no actual chord exists)</p>
+</section>
+
+<section class="center">
+  <h2>Why Should You Care?</h2>
+  <ul class="big" style="line-height:1.8;">
+    <li><strong style="color:#9ad1ff;">SAT/ACT Math:</strong><br/>AM-GM appears in optimization problems</li>
+    <li><strong style="color:#9ad1ff;">Math Competitions:</strong><br/>Essential tool for inequality problems</li>
+    <li><strong style="color:#9ad1ff;">Real Life:</strong><br/>Why average returns ≠ compound growth</li>
+    <li><strong style="color:#9ad1ff;">College Courses:</strong><br/>Foundation for calculus and statistics</li>
+  </ul>
+</section>
+
+<section class="center">
+  <h2>Simple Examples</h2>
+  <div class="highlight-box">
+    <p>For two positive numbers:</p>
+    <p class="equation-large">\( \displaystyle \frac{a+b}{2} \ge \sqrt{ab} \)</p>
+    <p class="dim">Average ≥ Square root of product</p>
+  </div>
+  <div class="fragment">
+    <div class="highlight-box">
+      <p>For three positive numbers:</p>
+      <p class="equation-large">\( \displaystyle \frac{x+y+z}{3} \ge \sqrt[3]{xyz} \)</p>
+      <p class="dim">Average ≥ Cube root of product</p>
+    </div>
+  </div>
+  <p class="fragment"><strong>Try it:</strong> When \( a = b = 4 \), both sides equal 4!</p>
+</section>
+
+<section class="center">
+  <h2>A Useful Trick</h2>
+  <p class="big">Find the minimum of \( x + \frac{1}{x} \) for \( x > 0 \)</p>
+  <div class="highlight-box big">
+    <p class="big">Using AM–GM on \( x \) and \( \tfrac{1}{x} \):</p>
+    <p class="equation-xl">\( \frac{x + \frac{1}{x}}{2} \ge \sqrt{x \cdot \frac{1}{x}} = 1 \)</p>
+    <p class="big">Therefore: \( x + \frac{1}{x} \ge 2 \)</p>
+  </div>
+  <div class="fragment">
+    <p class="big"><strong>Minimum is 2</strong>, achieved when \( x = 1 \)</p>
+    <p class="big" style="color:#9ad1ff;">This appears on standardized tests!</p>
+  </div>
+</section>
+
+<section class="center">
+  <h2 style="color:#9ad1ff;">Summary</h2>
+  <div class="big" style="line-height:1.8;">
+    <p>1. \( \log x \) curves like a frown (concave)</p>
+    <p>2. Concave functions satisfy Jensen's inequality</p>
+    <p>3. Apply Jensen to \( \log \) → get AM–GM!</p>
+  </div>
+  <div class="highlight-box big" style="background: rgba(154, 209, 255, 0.1); border-color: #9ad1ff;">
+    <p class="big"><strong>The Big Idea:</strong><br/>
+    The average is always ≥ the geometric mean<br/>
+    (with equality when all numbers are the same)</p>
+  </div>
+</section>
+
+<section class="center">
+  <h2>Practice Problem</h2>
+  <p class="big" style="color:#9ad1ff;"><strong>Test Your Understanding!</strong></p>
+  <div class="highlight-box big">
+    <p class="big">If \( a, b, c > 0 \) and \( abc = 1 \),<br/>
+    find the minimum value of:</p>
+    <p class="equation-xl">\( a + b + c \)</p>
+  </div>
+  <p class="big"><strong>Hint:</strong> Use AM–GM with three numbers</p>
+  <p class="big"><strong>Answer:</strong> <span style="color:#ba00ba; cursor:pointer;" onclick="this.innerHTML='The minimum is 3, when a=b=c=1'">Click to reveal</span></p>
+  <p class="big" style="color:#9ad1ff;">Share your solution approach in the comments!</p>
+</section>
+
+<section class="center" data-background-color="#0b1021" data-background-opacity="1">
+  <h2 class="r-fit-text" style="color:#9ad1ff;">Wrap-Up</h2>
+  <div>
+    <p class="big" style="color:#fff;">Concavity of \( \log \) <span style="color:#ba00ba;">⟹</span> Jensen <span style="color:#ba00ba;">⟹</span> AM–GM</p>
+    <p class="big dim" style="color:#ddd;">A powerful, elegant chain!</p>
+  </div>
+  <div style="margin-top:2.5em; padding:1em; border-top:2px solid #9ad1ff;">
+    <p class="big" style="color:#9ad1ff;"><strong>Next Video:</strong></p>
+    <p class="big" style="color:#bbb;">Weighted AM–GM and Constrained Optimization</p>
+  </div>
+</section>
+
+
+		    			    <section class="center">
+					      
+
+		    <h2 class="r-fit-text">Thank You!</h2>
+
+<h2 class="big"><font color="#ba4a00">Like, Share, and Subscribe!</font></h2>
+</section>		    		    
+				
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/notes/notes.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/math/math.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/markdown/markdown.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				controls: true,
+				progress: true,
+				center: false,
+				width: 1600,
+				height: 900,
+				margin: 0.04,    // tighter outer margin = larger content
+				minScale: 0.5,
+				maxScale: 2.5,
+				transition: 'slide',
+				backgroundTransition: 'fade',
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMath.KaTeX, RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

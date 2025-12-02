@@ -94,10 +94,7 @@ export default function Document() {
                 "educationalRole": ["student"],
                 "educationalLevel": ["High School", "Undergraduate", "Graduate"]
               },
-              "keywords": ["AI tutor", "STEM education", "mathematics", "computer science", "algorithms", "machine learning", "personalized learning"],
-              "sameAs": [
-                "https://app.scimigo.com"
-              ]
+              "keywords": ["AI tutor", "STEM education", "mathematics", "computer science", "algorithms", "machine learning", "personalized learning"]
             })
           }}
         />

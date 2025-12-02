@@ -1,0 +1,759 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>SciMigo - Series A Pitch Deck</title>
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reset.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/theme/serif.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/highlight/monokai.css">
+		<style>
+		  :root {
+		    --primary-color: #2d7ef7;
+		    --accent-color: #ba4a00;
+		    --success-color: #12997a;
+		    --warning-color: #e17d00;
+		    --text-muted: #666;
+		    --bg-gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		    --bg-gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+		    --bg-gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+		  }
+		  
+		  .reveal .slides section {
+		    text-align: left;
+		    padding: 40px;
+		  }
+		  
+		  .reveal .slides section.center {
+		    text-align: center !important;
+		  }
+		  
+		  h1 {
+		    color: #2D3748 !important;
+		    font-weight: bold;
+		    font-size: 3.2em;
+		    margin-bottom: 0.3em;
+		    text-align: center;
+		    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+		  }
+		  
+		  h2 {
+		    color: var(--accent-color) !important;
+		    font-size: 2em;
+		    margin-bottom: 0.8em;
+		    border-bottom: 2px solid var(--accent-color);
+		    padding-bottom: 0.3em;
+		    font-weight: bold;
+		  }
+		  
+		  h3 {
+		    color: var(--primary-color);
+		    font-size: 1.4em;
+		    margin-bottom: 0.6em;
+		    margin-top: 1em;
+		  }
+		  
+		  .reveal .slides section ul {
+		    margin: 1em 0;
+		  }
+		  
+		  .reveal .slides section li {
+		    margin-bottom: 0.8em;
+		    line-height: 1.6;
+		    font-size: 0.95em;
+		  }
+		  
+		  .reveal .slides section li ul li {
+		    margin-bottom: 0.4em;
+		    font-size: 0.9em;
+		    color: var(--text-muted);
+		  }
+		  
+		  .metric-box {
+		    display: inline-block;
+		    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+		    color: white;
+		    padding: 20px 30px;
+		    border-radius: 15px;
+		    margin: 10px;
+		    text-align: center;
+		    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+		    border: 2px solid white;
+		  }
+		  
+		  .metric-box .number {
+		    font-size: 2.5em;
+		    font-weight: bold;
+		    display: block;
+		  }
+		  
+		  .metric-box .label {
+		    font-size: 0.9em;
+		    margin-top: 5px;
+		  }
+		  
+		  .highlight-box {
+		    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+		    padding: 20px;
+		    border-radius: 10px;
+		    margin: 20px 0;
+		    border-left: 4px solid var(--primary-color);
+		  }
+		  
+		  .feature-grid {
+		    display: grid;
+		    grid-template-columns: repeat(2, 1fr);
+		    gap: 20px;
+		    margin: 20px 0;
+		  }
+		  
+		  .feature-card {
+		    background: white;
+		    border: 1px solid #e0e0e0;
+		    border-radius: 10px;
+		    padding: 20px;
+		    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+		    transition: transform 0.3s;
+		  }
+		  
+		  .feature-card:hover {
+		    transform: translateY(-5px);
+		    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+		  }
+		  
+		  .feature-card h4 {
+		    color: var(--primary-color);
+		    margin-bottom: 10px;
+		    font-size: 1.1em;
+		  }
+		  
+		  .phase-badge {
+		    display: inline-block;
+		    padding: 4px 12px;
+		    border-radius: 20px;
+		    font-size: 0.8em;
+		    font-weight: bold;
+		    margin-right: 8px;
+		  }
+		  
+		  .phase-1 { background: #e3f2fd; color: var(--primary-color); }
+		  .phase-2 { background: #fff3e0; color: var(--warning-color); }
+		  .phase-3 { background: #e8f5e8; color: var(--success-color); }
+		  
+		  table {
+		    width: 100%;
+		    border-collapse: collapse;
+		    margin: 20px 0;
+		    font-size: 0.9em;
+		  }
+		  
+		  th {
+		    background: var(--primary-color);
+		    color: white;
+		    padding: 12px;
+		    text-align: left;
+		    font-weight: bold;
+		  }
+		  
+		  td {
+		    padding: 10px 12px;
+		    border-bottom: 1px solid #e0e0e0;
+		  }
+		  
+		  tr:hover {
+		    background: #f5f5f5;
+		  }
+		  
+		  .revenue-model {
+		    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+		    padding: 25px;
+		    border-radius: 15px;
+		    margin: 20px 0;
+		    color: white;
+		  }
+		  
+		  .revenue-model h3 {
+		    color: white !important;
+		    margin-top: 0;
+		  }
+		  
+		  .team-member {
+		    background: white;
+		    border-left: 4px solid var(--success-color);
+		    padding: 15px;
+		    margin: 10px 0;
+		    border-radius: 0 8px 8px 0;
+		  }
+		  
+		  .subtitle {
+		    color: #4A5568;
+		    font-size: 1.4em;
+		    text-align: center;
+		    margin-top: -10px;
+		    margin-bottom: 40px;
+		    font-weight: 500;
+		  }
+		  
+		  .cta-button {
+		    display: inline-block;
+		    background: var(--accent-color);
+		    color: white;
+		    padding: 15px 40px;
+		    border-radius: 30px;
+		    font-size: 1.2em;
+		    font-weight: bold;
+		    text-decoration: none;
+		    margin-top: 30px;
+		    box-shadow: 0 4px 15px rgba(186, 74, 0, 0.3);
+		    transition: transform 0.3s;
+		  }
+		  
+		  .cta-button:hover {
+		    transform: scale(1.05);
+		  }
+		  
+		  .market-stat {
+		    background: var(--bg-gradient-3);
+		    color: white;
+		    padding: 30px;
+		    border-radius: 15px;
+		    text-align: center;
+		    margin: 20px 0;
+		  }
+		  
+		  .market-stat .big-number {
+		    font-size: 3em;
+		    font-weight: bold;
+		  }
+		  
+		  .competitive-edge {
+		    background: #f8f9fa;
+		    border-left: 4px solid var(--success-color);
+		    padding: 15px;
+		    margin: 10px 0;
+		    border-radius: 0 8px 8px 0;
+		  }
+		  
+		  code {
+		    background: #f4f4f4;
+		    padding: 2px 6px;
+		    border-radius: 4px;
+		    color: var(--primary-color);
+		  }
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+		  <div class="slides">
+
+
+<section class="center">
+  <h1>SciMigo</h1>
+  <p class="subtitle">Democratizing World-Class Tutoring with AI</p>
+  <div style="margin-top: 60px;">
+    <div class="metric-box">
+      <span class="number"><span>$</span>100B+</span>
+      <span class="label">Global Market</span>
+    </div>
+    <div class="metric-box">
+      <span class="number">K-12 & CS</span>
+      <span class="label">STEM Focus</span>
+    </div>
+    <div class="metric-box">
+      <span class="number">Live</span>
+      <span class="label">Chrome + Web App</span>
+    </div>
+  </div>
+  <p style="margin-top: 40px; font-size: 1.1em; color: var(--text-muted);">
+    Pre-Seed Round — August 2025
+  </p>
+</section>
+
+			
+			<!-- Problem Slide -->
+			<section>
+				<h2>The Problem We're Solving</h2>
+				<div class="feature-grid">
+					<div class="feature-card">
+						<h4>💰 Expensive & Inaccessible</h4>
+						<p><span>$</span>100B+ global tutoring market leaves most families behind</p>
+					</div>
+					<div class="feature-card">
+						<h4>📉 Poor Academic Outcomes</h4>
+						<p>70% of K-12 students struggle with math and science mastery</p>
+					</div>
+					<div class="feature-card">
+						<h4>⏰ Limited Availability</h4>
+						<p>No real-time support outside school hours when students need it most</p>
+					</div>
+					<div class="feature-card">
+						<h4>📊 No Measurable ROI</h4>
+						<p>Parents & schools lack visibility into tutoring effectiveness</p>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Solution Slide -->
+			<section>
+				<h2>Our Solution: AI-Powered Socratic Tutoring</h2>
+				<div class="highlight-box" style="padding: 15px; margin: 15px 0;">
+					<h3 style="margin-top: 0; margin-bottom: 10px; font-size: 1.2em;">Core Innovation: Socratic Learning Process</h3>
+					<p style="margin: 0; font-size: 0.9em;">We teach through guided questioning, not rote answers, building deep understanding.</p>
+				</div>
+				<div class="feature-grid" style="grid-template-columns: repeat(2, 1fr); gap: 15px;">
+					<div class="feature-card" style="padding: 15px;">
+						<h4 style="font-size: 1em; margin-bottom: 8px;">🎯 Curriculum-Aligned</h4>
+						<ul style="margin: 0; padding-left: 20px; font-size: 0.85em;">
+							<li style="margin-bottom: 4px;">Step-by-step explanations</li>
+							<li style="margin-bottom: 0;">Adaptive hints & feedback</li>
+						</ul>
+					</div>
+					<div class="feature-card" style="padding: 15px;">
+						<h4 style="font-size: 1em; margin-bottom: 8px;">📱 Multi-Platform</h4>
+						<ul style="margin: 0; padding-left: 20px; font-size: 0.85em;">
+							<li style="margin-bottom: 4px;">Web & Chrome extension</li>
+							<li style="margin-bottom: 0;">Mobile apps (iOS/Android)</li>
+						</ul>
+					</div>
+					<div class="feature-card" style="padding: 15px;">
+						<h4 style="font-size: 1em; margin-bottom: 8px;">📈 Measurable Results</h4>
+						<ul style="margin: 0; padding-left: 20px; font-size: 0.85em;">
+							<li style="margin-bottom: 4px;">Parent/teacher dashboards</li>
+							<li style="margin-bottom: 0;">Progress tracking</li>
+						</ul>
+					</div>
+					<div class="feature-card" style="padding: 15px;">
+						<h4 style="font-size: 1em; margin-bottom: 8px;">🤖 AI-Powered</h4>
+						<ul style="margin: 0; padding-left: 20px; font-size: 0.85em;">
+							<li style="margin-bottom: 4px;">Personalized paths</li>
+							<li style="margin-bottom: 0;">24/7 availability</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Market Opportunity -->
+			<section>
+				<h2>Massive Market Opportunity</h2>
+				<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px;">
+					<div class="market-stat">
+						<div class="big-number"><span>$</span>100B+</div>
+						<div>TAM: Global K-12 Tutoring</div>
+					</div>
+					<div class="market-stat">
+						<div class="big-number"><span>$</span>12B</div>
+						<div>SAM: STEM Tutoring</div>
+					</div>
+					<div class="market-stat">
+						<div class="big-number"><span>$</span>2.4B</div>
+						<div>SOM: Digital STEM</div>
+					</div>
+				</div>
+				
+				<h3>Growth Drivers</h3>
+				<ul>
+					<li>📈 Post-COVID acceleration of digital learning adoption</li>
+					<li>🌏 Regulatory changes in Asia pushing affordable AI solutions</li>
+					<li>💳 Parents' willingness to pay for measurable academic success</li>
+					<li>🚀 STEM job demand growing 2× faster than average</li>
+				</ul>
+			</section>
+			
+			<!-- Competitive Analysis -->
+			<section>
+				<h2>Competitive Landscape</h2>
+
+				<table>
+
+<tr>
+  <th>Competitor</th><th>Their Weakness (for our user/job)</th><th>Our Edge</th>
+</tr>
+<tr>
+  <td><strong>ChatGPT (Study mode)</strong></td>
+  <td>Separate tab; answer-centric; limited classroom workflows</td>
+  <td><strong>In-page</strong> help + hint-first steps; targeted step checks; teacher/club view</td>
+</tr>
+<tr>
+  <td><strong>Khan Academy / Khanmigo</strong></td>
+  <td>Walled garden; not on arbitrary pages students use</td>
+  <td>Works on <strong>any site</strong> via Chrome overlay; blends open-web + curriculum tracks</td>
+</tr>
+<tr>
+  <td><strong>Photomath / Quizlet</strong></td>
+  <td>Answer dumps; limited guided reasoning</td>
+  <td>Hint-first coaching with step checks (where feasible)</td>
+</tr>
+<tr>
+  <td><strong>Traditional tutors</strong></td>
+  <td>Expensive; limited availability</td>
+  <td>Always-on, affordable; private-tutor-like guidance</td>
+</tr>
+</table>
+
+				
+				<div class="competitive-edge">
+					<h3>🎯 Unique Value Proposition</h3>
+					<p>Socratic, curriculum-aware AI + measurable results + Asia-ready localization</p>
+				</div>
+			</section>
+			
+			<!-- Platform Features -->
+			<section>
+				<h2>The SciMigo Platform</h2>
+				<div class="feature-grid">
+					<div>
+						<h3>Core Features</h3>
+						<ul style="font-size: 0.85em; line-height: 1.3;">
+							<li style="margin-bottom: 0.4em;">Hint-first, step-wise guidance (not answer dumps)</li>
+							<li style="margin-bottom: 0.4em;">Adaptive modes: Solve, Hints, Tutor</li>
+							<li style="margin-bottom: 0.4em;">Targeted automatic checks (prototype): SymPy for some math; simple test-based checks for code</li>
+							<li style="margin-bottom: 0.4em;">Progress tracking dashboard (basic today; expanding)</li>
+							<li style="margin-bottom: 0;">Multimodal learning (voice/slides; early experiments)</li>
+						</ul>
+					</div>
+					<div>
+						<h3>Technology Stack</h3>
+						<ul style="font-size: 0.85em; line-height: 1.3;">
+							<li style="margin-bottom: 0.4em;"><strong>AI Engine:</strong> OpenAI + optional multi-provider routing</li>
+							<li style="margin-bottom: 0.4em;"><strong>Frontend:</strong> React/TypeScript</li>
+							<li style="margin-bottom: 0.4em;"><strong>Backend:</strong> FastAPI + PostgreSQL + Redis</li>
+							<li style="margin-bottom: 0.4em;"><strong>Performance:</strong> Sub-2s response times</li>
+							<li style="margin-bottom: 0;"><strong>Scale:</strong> Serverless architecture</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Expansion: Coding Interview -->
+			<section>
+				<h2>Flagship Expansion: Code Interview Mastery</h2>
+				<div class="highlight-box" style="padding: 12px; margin: 12px 0;">
+					<h3 style="margin: 0; font-size: 1.1em;"><span>$</span>5B+ Technical Interview Prep Market</h3>
+					<p style="margin: 5px 0 0 0; font-size: 0.85em;">AI-guided coding interview preparation with adaptive learning and real interview simulation</p>
+				</div>
+				<div class="feature-grid" style="grid-template-columns: repeat(2, 1fr); gap: 12px;">
+					<div class="feature-card" style="padding: 12px;">
+						<h4 style="font-size: 0.95em; margin-bottom: 6px;">🎯 Target Audience</h4>
+						<ul style="margin: 0; padding-left: 18px; font-size: 0.8em;">
+							<li style="margin-bottom: 3px;">SWE job seekers</li>
+							<li style="margin-bottom: 3px;">CS students</li>
+							<li style="margin-bottom: 0;">Competitive programmers</li>
+						</ul>
+					</div>
+					<div class="feature-card" style="padding: 12px;">
+						<h4 style="font-size: 0.95em; margin-bottom: 6px;">💡 Core Features</h4>
+						<ul style="margin: 0; padding-left: 18px; font-size: 0.8em;">
+							<li style="margin-bottom: 3px;">Adaptive hints & feedback</li>
+							<li style="margin-bottom: 3px;">Mock interview mode</li>
+							<li style="margin-bottom: 0;">Skill tracking</li>
+						</ul>
+					</div>
+					<div class="feature-card" style="padding: 12px;">
+						<h4 style="font-size: 0.95em; margin-bottom: 6px;">🚀 Technology</h4>
+						<ul style="margin: 0; padding-left: 18px; font-size: 0.8em;">
+							<li style="margin-bottom: 3px;"><code style="font-size: 0.9em;">eval-service</code></li>
+							<li style="margin-bottom: 3px;">Claude Flow</li>
+							<li style="margin-bottom: 0;">Complexity scoring</li>
+						</ul>
+					</div>
+					<div class="feature-card" style="padding: 12px;">
+						<h4 style="font-size: 0.95em; margin-bottom: 6px;">💰 Premium</h4>
+						<ul style="margin: 0; padding-left: 18px; font-size: 0.8em;">
+							<li style="margin-bottom: 3px;">Timed interviews</li>
+							<li style="margin-bottom: 3px;">Study plans</li>
+							<li style="margin-bottom: 0;">Company prep</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Business Model -->
+			<section>
+				<h2>Dual Revenue Model</h2>
+				<div class="revenue-model" style="padding: 15px; margin: 10px 0;">
+					<h3 style="font-size: 1.2em; margin: 0 0 10px 0;">💳 Subscription Tiers</h3>
+					<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+						<div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px;">
+							<strong style="font-size: 0.9em;">Student</strong><br>
+							<span style="font-size: 0.85em;"><span>$</span>14.99/mo</span><br>
+							<small style="font-size: 0.75em;">Core subjects</small>
+						</div>
+						<div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px;">
+							<strong style="font-size: 0.9em;">Pro</strong><br>
+							<span style="font-size: 0.85em;"><span>$</span>29.99/mo</span><br>
+							<small style="font-size: 0.75em;">All + coding</small>
+						</div>
+						<div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px;">
+							<strong style="font-size: 0.9em;">Family</strong><br>
+							<span style="font-size: 0.85em;"><span>$</span>49.99/mo</span><br>
+							<small style="font-size: 0.75em;">4 accounts</small>
+						</div>
+					</div>
+				</div>
+				
+				<div class="highlight-box" style="padding: 12px; margin: 10px 0;">
+					<h3 style="font-size: 1.1em; margin: 0 0 8px 0;">🎓 Premium Subject Tracks</h3>
+					<ul style="margin: 0; font-size: 0.85em;">
+						<li style="margin-bottom: 5px;"><strong><span>$</span>199–<span>$</span>299:</strong> 6–8 week intensives with AI + live support</li>
+						<li style="margin-bottom: 5px;"><strong><span>$</span>99–<span>$</span>149:</strong> 4–6 week self-paced programs</li>
+						<li style="margin-bottom: 0;"><strong>Examples:</strong> Coding Interview, SAT Math, AP Calculus</li>
+					</ul>
+				</div>
+				
+				<h3 style="font-size: 1.2em; margin-top: 15px; margin-bottom: 10px;">Revenue Mix Target (Year 3)</h3>
+				<div style="display: flex; justify-content: space-around; margin-top: 10px;">
+					<div style="text-align: center;">
+						<div style="font-size: 1.6em; color: var(--primary-color); font-weight: bold;">40%</div>
+						<div style="font-size: 0.85em;">Subscriptions</div>
+					</div>
+					<div style="text-align: center;">
+						<div style="font-size: 1.6em; color: var(--warning-color); font-weight: bold;">50%</div>
+						<div style="font-size: 0.85em;">Premium</div>
+					</div>
+					<div style="text-align: center;">
+						<div style="font-size: 1.6em; color: var(--success-color); font-weight: bold;">10%</div>
+						<div style="font-size: 0.85em;">B2B</div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Go-to-Market Strategy -->
+			<section>
+				<h2>Go-to-Market Strategy</h2>
+				
+				<h3 style="font-size: 1.2em; margin-top: 15px; margin-bottom: 10px;">Dual-Track Launch</h3>
+				<div class="feature-grid" style="gap: 10px; margin-bottom: 15px;">
+					<div class="highlight-box" style="padding: 10px;">
+						<h4 style="font-size: 0.95em; margin: 0 0 5px 0;">Track 1: K-12 Academic</h4>
+						<p style="font-size: 0.8em; margin: 0;">SAT/AP math for U.S. market with clear parent ROI</p>
+					</div>
+					<div class="highlight-box" style="padding: 10px;">
+						<h4 style="font-size: 0.95em; margin: 0 0 5px 0;">Track 2: Coding Interviews</h4>
+						<p style="font-size: 0.8em; margin: 0;">University students & job seekers, high WTP</p>
+					</div>
+				</div>
+				
+				<h3 style="font-size: 1.2em; margin-top: 10px; margin-bottom: 10px;">Phased Rollout</h3>
+				<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+					<div class="team-member" style="padding: 10px; margin: 0;">
+						<strong style="font-size: 0.9em; display: block; margin-bottom: 6px;"><span class="phase-badge phase-1" style="font-size: 0.75em;">Phase 1</span><br>Months 1–6: Beta</strong>
+						<ul style="margin: 0; padding-left: 18px; font-size: 0.75em; list-style: disc;">
+							<li style="margin-bottom: 2px;">Launch SAT/AP & Coding</li>
+							<li style="margin-bottom: 2px;">1,000+ early adopters</li>
+							<li style="margin-bottom: 0;">Refine Socratic flows</li>
+						</ul>
+					</div>
+					<div class="team-member" style="padding: 10px; margin: 0;">
+						<strong style="font-size: 0.9em; display: block; margin-bottom: 6px;"><span class="phase-badge phase-2" style="font-size: 0.75em;">Phase 2</span><br>Months 7–18: Expand</strong>
+						<ul style="margin: 0; padding-left: 18px; font-size: 0.75em; list-style: disc;">
+							<li style="margin-bottom: 2px;">Add STEM subjects</li>
+							<li style="margin-bottom: 2px;">Competitive programming</li>
+							<li style="margin-bottom: 0;">10,000+ users</li>
+						</ul>
+					</div>
+					<div class="team-member" style="padding: 10px; margin: 0;">
+						<strong style="font-size: 0.9em; display: block; margin-bottom: 6px;"><span class="phase-badge phase-3" style="font-size: 0.75em;">Phase 3</span><br>Months 19–36: Scale</strong>
+						<ul style="margin: 0; padding-left: 18px; font-size: 0.75em; list-style: disc;">
+							<li style="margin-bottom: 2px;">Global expansion</li>
+							<li style="margin-bottom: 2px;">Enterprise deals</li>
+							<li style="margin-bottom: 0;">University partners</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Financial Projections -->
+
+			<section>
+  <h2>12-Month Plan & Metrics</h2>
+  <div class="highlight-box" style="padding: 15px; margin: 10px 0;">
+    <h3 style="font-size: 1.1em; margin-top: 0; margin-bottom: 0.4em;">Next 90 Days</h3>
+    <ul style="font-size: 0.85em; line-height: 1.3; margin: 0;">
+      <li style="margin-bottom: 0.3em;">Ship AP Calc Units 1–2 + coding-interview mini-track</li>
+      <li style="margin-bottom: 0.3em;">Onboard first <strong>100+ WAU</strong>; D7 ≥ 20–30%</li>
+      <li style="margin-bottom: 0;">Launch <strong>Pro</strong> (Oct 2025); first paid users</li>
+    </ul>
+  </div>
+  <div class="highlight-box" style="padding: 15px; margin: 10px 0;">
+    <h3 style="font-size: 1.1em; margin-top: 0; margin-bottom: 0.4em;">By Month 12</h3>
+    <ul style="font-size: 0.85em; line-height: 1.3; margin: 0;">
+      <li style="margin-bottom: 0.3em;"><strong>2–3k MAU</strong>; <strong>3–8%</strong> Pro conversion; paid retention 6–9 mo (to validate)</li>
+      <li style="margin-bottom: 0.3em;"><strong>2–3 pilots</strong> (Title I school / library / club) with basic outcomes telemetry</li>
+      <li style="margin-bottom: 0;">Curriculum: AP Calc complete; Algebra→Precalc core; coding-interview v1</li>
+    </ul>
+  </div>
+</section>
+
+			
+			<!-- Team & Founder -->
+			<section>
+				<h2>Founder & Team Strategy</h2>
+				
+				<div class="highlight-box" style="padding: 15px; margin: 15px 0;">
+					<h3 style="font-size: 1.2em; margin: 0 0 10px 0;">👨‍💻 Founder Profile</h3>
+					<ul style="font-size: 0.9em; margin: 0;">
+						<li style="margin-bottom: 5px;">Solo founder & lead engineer (Tsinghua/Stanford background)</li>
+						<li style="margin-bottom: 5px;">Shipped Chrome extension + web app; <strong>all production code designed/reviewed by me</strong></li>
+						<li style="margin-bottom: 0;">AI coding assistants used for scaffolding/refactors; <strong>no direct commits</strong></li>
+					</ul>
+				</div>
+
+				<div class="feature-grid" style="grid-template-columns: repeat(2, 1fr); gap: 15px;">
+					<div class="feature-card" style="padding: 15px;">
+						<h4 style="font-size: 1em; margin-bottom: 8px;">🔒 Quality & Safety Process</h4>
+						<ul style="margin: 0; padding-left: 20px; font-size: 0.85em;">
+							<li style="margin-bottom: 4px;">CI with unit/integration tests</li>
+							<li style="margin-bottom: 4px;">AI code policy: review/modify all suggestions</li>
+							<li style="margin-bottom: 0;">Security paths manually written</li>
+						</ul>
+					</div>
+					<div class="feature-card" style="padding: 15px;">
+						<h4 style="font-size: 1em; margin-bottom: 8px;">⚡ Speed & Efficiency</h4>
+						<ul style="margin: 0; padding-left: 20px; font-size: 0.85em;">
+							<li style="margin-bottom: 4px;">AI agents = faster iteration</li>
+							<li style="margin-bottom: 4px;">Lower burn rate</li>
+							<li style="margin-bottom: 0;">Capital efficient development</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="revenue-model" style="padding: 15px; margin: 15px 0;">
+					<h3 style="font-size: 1.2em; margin: 0 0 10px 0;">📅 90-Day Hiring Plan (Post-Raise)</h3>
+					<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+						<div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px;">
+							<strong style="font-size: 0.9em;">Month 1-2</strong><br>
+							<span style="font-size: 0.85em;">Founding Eng (Full-Stack)</span><br>
+							<small style="font-size: 0.75em;">Frontend velocity & tests</small>
+						</div>
+						<div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px;">
+							<strong style="font-size: 0.9em;">Month 2-3</strong><br>
+							<span style="font-size: 0.85em;">Founding Eng (Backend/ML)</span><br>
+							<small style="font-size: 0.75em;">Step-check pipeline, data</small>
+						</div>
+						<div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px;">
+							<strong style="font-size: 0.9em;">Month 2-3</strong><br>
+							<span style="font-size: 0.85em;">Content Lead</span><br>
+							<small style="font-size: 0.75em;">AP Calc/coding curriculum</small>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Funding Ask -->
+
+<section>
+  <h2>Pre-Seed Raise</h2>
+  <div class="highlight-box" style="background: var(--bg-gradient-1); padding: 15px; margin: 10px 0;">
+    <h3 style="color: white; font-size: 1.2em; margin: 0;">
+      Raising $750k Pre-Seed (SAFE)
+    </h3>
+    <p style="color: white; font-size: 0.9em; margin: 5px 0 0 0;">
+      12 months runway to reach 2–3k MAU, 3–8% Pro conversion, and 2–3 paid pilots
+    </p>
+  </div>
+
+  <h3 style="font-size: 1.1em; margin: 15px 0 10px 0;">Use of Funds & Team Building</h3>
+  <div style="display: flex; justify-content: space-around; margin: 10px 0;">
+    <div style="text-align: center;">
+      <div style="font-size: 1.6em; color: var(--primary-color); font-weight: bold;">40%</div>
+      <div style="font-size: 0.8em;">First 3 Hires</div>
+    </div>
+    <div style="text-align: center;">
+      <div style="font-size: 1.6em; color: var(--warning-color); font-weight: bold;">20%</div>
+      <div style="font-size: 0.8em;">Product & Content</div>
+    </div>
+    <div style="text-align: center;">
+      <div style="font-size: 1.6em; color: var(--success-color); font-weight: bold;">25%</div>
+      <div style="font-size: 0.8em;">Infra & AI Credits</div>
+    </div>
+    <div style="text-align: center;">
+      <div style="font-size: 1.6em; color: var(--accent-color); font-weight: bold;">15%</div>
+      <div style="font-size: 0.8em;">Growth & Ops</div>
+    </div>
+  </div>
+
+  <h3 style="font-size: 1.1em; margin: 15px 0 8px 0;">Key Milestones</h3>
+  <ul style="font-size: 0.85em; line-height: 1.3; margin: 0;">
+    <li style="margin-bottom: 0.4em;">Build founding team: 2 engineers + content lead</li>
+    <li style="margin-bottom: 0.4em;">Launch Pro tier; achieve <strong>3-8% conversion rate</strong></li>
+    <li style="margin-bottom: 0.4em;">Scale to <strong>2-3k MAU</strong> with <strong>D7 retention ≥ 20-30%</strong></li>
+    <li style="margin-bottom: 0.4em;">Complete <strong>2-3 paid pilots</strong> with measurable outcomes</li>
+    <li style="margin-bottom: 0;">Ship AP Calc complete + coding interview v1</li>
+  </ul>
+</section>
+			
+			<!-- Why Invest -->
+			<section class="center">
+				<h2>Why Invest in SciMigo?</h2>
+				<div style="margin: 20px 0;">
+					<div class="competitive-edge" style="margin: 10px auto; max-width: 700px; padding: 10px;">
+						<h3 style="font-size: 1.1em; margin: 0 0 5px 0;">📈 Massive TAM</h3>
+						<p style="font-size: 0.85em; margin: 0;"><span>$</span>100B+ underserved global tutoring market</p>
+					</div>
+					<div class="competitive-edge" style="margin: 10px auto; max-width: 700px; padding: 10px;">
+						<h3 style="font-size: 1.1em; margin: 0 0 5px 0;">🚀 Proven Execution</h3>
+						<p style="font-size: 0.85em; margin: 0;">Live product with users; capital-efficient development</p>
+					</div>
+					<div class="competitive-edge" style="margin: 10px auto; max-width: 700px; padding: 10px;">
+						<h3 style="font-size: 1.1em; margin: 0 0 5px 0;">💰 Strong Unit Economics</h3>
+						<p style="font-size: 0.85em; margin: 0;">High-margin SaaS; CAC < 3-month revenue</p>
+					</div>
+					<div class="competitive-edge" style="margin: 10px auto; max-width: 700px; padding: 10px;">
+						<h3 style="font-size: 1.1em; margin: 0 0 5px 0;">⚡ Speed Advantage</h3>
+						<p style="font-size: 0.85em; margin: 0;">AI-accelerated development + clear hiring roadmap</p>
+					</div>
+				</div>
+				
+				<h3 style="margin-top: 20px; color: var(--accent-color); font-size: 1.3em;">Join us in building the trusted global AI tutor</h3>
+				<a href="https://scimigo.com/chrome" class="cta-button" style="background:#2d7ef7">
+  Install on Chrome
+</a>
+	</section>
+			
+			<!-- Thank You -->
+			<section class="center">
+				<h1 style="color: var(--primary-color) !important;">Thank You</h1>
+				<p class="subtitle" style="color: var(--primary-color) !important;">🎯 Making high-quality AI tutoring accessible to everyone, everywhere</p>
+				<div style="margin-top: 60px;">
+					<h2 style="border: none; color: var(--accent-color) !important;">Questions?</h2>
+				</div>
+				<div style="margin-top: 40px; color: var(--primary-color) !important;">
+					<p style="color: var(--primary-color) !important;">Contact: info@scimigo.com</p>
+					<p style="color: var(--primary-color) !important;">Demo: app.scimigo.com</p>
+				</div>
+			</section>
+
+		  </div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/notes/notes.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/math/math.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/markdown/markdown.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			window.addEventListener('DOMContentLoaded', function() {
+				Reveal.initialize({
+					center: false,
+					hash: true,
+					width: 1920,
+					height: 1080,
+					transition: 'slide',
+					transitionSpeed: 'default',
+					backgroundTransition: 'fade',
+
+					// Learn about plugins: https://revealjs.com/plugins/
+					plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				});
+			});
+		</script>
+	</body>
+</html>

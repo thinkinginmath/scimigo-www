@@ -286,14 +286,16 @@ export default function Features() {
               Join thousands of students already using SciMigo to master mathematics and computer science.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="https://app.scimigo.com" 
+              <a
+                href="https://chromewebstore.google.com/detail/ogpfnkaiaagfgalomgkooidacamanhdg?utm_source=item-share-cb"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
               >
-                Start Learning Free
+                Get Chrome Extension
               </a>
-              <a 
-                href="/blog" 
+              <a
+                href="/blog"
                 className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium rounded-md border border-muted text-muted-foreground hover:bg-muted/50 transition-colors"
               >
                 Learn More

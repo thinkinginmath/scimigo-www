@@ -73,7 +73,7 @@ Whether you're a high schooler preparing for math competitions, a college studen
 
 This is more than just an AI tool - it's the culmination of years of teaching, learning, and believing that everyone deserves access to excellent STEM education. We're not just solving problems—we're building understanding, confidence, and genuine expertise in STEM subjects.
 
-Ready to experience this new approach to learning? [Try SciMigo now](https://app.scimigo.com) and discover personalized STEM tutoring that understands how you learn best.
+Ready to experience this new approach to learning? Install our [Chrome Extension](https://chromewebstore.google.com/detail/ogpfnkaiaagfgalomgkooidacamanhdg) and discover personalized STEM tutoring that understands how you learn best.
 
 Follow our journey as we continue expanding the boundaries of what's possible in AI-powered education. You can also check out my ongoing educational content on the [Thinking in Math YouTube channel](https://www.youtube.com/channel/UC5uV1LcSkHL5zCxKBikdTEg) for deep dives into mathematical concepts and problem-solving strategies.
 
