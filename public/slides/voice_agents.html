@@ -1,0 +1,828 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Voice Chat AI Agent - Hackathon Training</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/serif.min.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/highlight/monokai.min.css">
+  <style>
+    :root {
+      --primary-color: #2d7ef7;
+      --accent-color: #ba4a00;
+      --success-color: #12997a;
+      --warning-color: #e17d00;
+      --text-muted: #666;
+      --text-main: #333;
+    }
+
+    .reveal .slides section {
+      text-align: left;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+
+    h1,
+    h2,
+    .colored {
+      color: var(--accent-color) !important;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 0.5em;
+      padding-bottom: 0.3em;
+      border-bottom: 4px solid var(--accent-color);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent-color) 0%, #d35400 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 1.5em;
+      margin-bottom: 0.6em;
+      margin-top: 0.3em;
+      border-bottom: 3px solid var(--accent-color);
+      padding-bottom: 0.3em;
+      position: relative;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent-color) 0%, #d35400 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h2::before {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-color) 0%, #1e5fcf 100%);
+    }
+
+    h3 {
+      color: var(--primary-color);
+      font-size: 1.1em;
+      margin-bottom: 0.5em;
+      margin-top: 0.8em;
+      font-weight: 800;
+      padding-left: 12px;
+      border-left: 4px solid var(--primary-color);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    ul {
+      font-size: 0.75em;
+      line-height: 1.5;
+      margin-left: 20px;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      color: var(--text-main);
+    }
+
+    ol {
+      font-size: 0.8em;
+      line-height: 1.6;
+      margin-left: 25px;
+      color: var(--text-main);
+    }
+
+    li {
+      margin-bottom: 0.4em;
+    }
+
+    li strong {
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+      border-left: 5px solid var(--primary-color);
+      padding: 12px 16px;
+      margin: 12px 0;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .highlight-box h3 {
+      margin-top: 0;
+      margin-bottom: 0.4em;
+      border-left: none;
+      padding-left: 0;
+    }
+
+    .tech-category {
+      background: var(--primary-color);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.75em;
+      font-weight: bold;
+      display: inline-block;
+      margin: 2px;
+    }
+
+    .milestone {
+      background: #f8f9fa;
+      border-left: 5px solid var(--success-color);
+      padding: 12px 16px;
+      margin: 10px 0;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    .reveal .slides section .fragment.current-fragment {
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      color: #d14;
+      border: 1px solid #e0e0e0;
+    }
+
+    .code-path {
+      font-family: monospace;
+      font-size: 0.7em;
+      color: var(--primary-color);
+      margin-top: 0.3em;
+    }
+
+    p {
+      font-size: 0.85em;
+      line-height: 1.5;
+      margin-bottom: 0.5em;
+      color: var(--text-main);
+    }
+
+    .center h1 {
+      font-size: 2.5em;
+      border: none;
+    }
+
+    .center h2 {
+      font-size: 1.6em;
+      border: none;
+    }
+
+    .center h2::before {
+      display: none;
+    }
+
+    .center p {
+      font-size: 1.1em;
+    }
+
+    /* Separator lines */
+    hr {
+      border: none;
+      border-top: 2px solid #ddd;
+      margin: 1.5em 0;
+    }
+
+    hr.thick {
+      border-top: 4px solid var(--accent-color);
+      width: 60%;
+      margin: 1.5em auto;
+    }
+
+    /* Column layouts */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Rounded boxes */
+    .box {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      border: 2px solid var(--primary-color);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 10px 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .box h3 {
+      margin-top: 0;
+      color: var(--primary-color);
+      border-left: none;
+      padding-left: 0;
+    }
+
+    .box-accent {
+      border-color: var(--accent-color);
+    }
+
+    .box-accent h3 {
+      color: var(--accent-color);
+    }
+
+    .box-success {
+      border-color: var(--success-color);
+    }
+
+    .box-success h3 {
+      color: var(--success-color);
+    }
+
+    /* Print styles */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .reveal .slides section {
+        overflow: visible !important;
+        height: auto !important;
+      }
+
+      .two-col,
+      .three-col {
+        page-break-inside: avoid;
+      }
+
+      .box {
+        background: #ffffff !important;
+        border: 2px solid #2d7ef7 !important;
+        page-break-inside: avoid;
+      }
+
+      .box-accent {
+        border-color: #ba4a00 !important;
+      }
+
+      .box-success {
+        border-color: #12997a !important;
+      }
+
+      h1,
+      h2,
+      h3 {
+        page-break-after: avoid;
+      }
+
+      h1 {
+        color: #ba4a00 !important;
+        border-bottom: 4px solid #ba4a00 !important;
+        font-weight: 900 !important;
+        -webkit-text-fill-color: #ba4a00 !important;
+        background: none !important;
+      }
+
+      h2 {
+        color: #ba4a00 !important;
+        border-bottom: 3px solid #ba4a00 !important;
+        font-weight: 800 !important;
+        -webkit-text-fill-color: #ba4a00 !important;
+        background: none !important;
+      }
+
+      h2::before {
+        background: #2d7ef7 !important;
+      }
+
+      h3 {
+        color: #2d7ef7 !important;
+        border-left: 4px solid #2d7ef7 !important;
+        font-weight: 800 !important;
+      }
+
+      .highlight-box {
+        background: #f8f9fa !important;
+        border-left: 5px solid #2d7ef7 !important;
+        page-break-inside: avoid;
+      }
+
+      .milestone {
+        background: #f8f9fa !important;
+        border-left: 5px solid #12997a !important;
+        page-break-inside: avoid;
+      }
+
+      .tech-category {
+        background: #2d7ef7 !important;
+        color: white !important;
+        border: 1px solid #2d7ef7 !important;
+      }
+
+      ul,
+      ol,
+      li,
+      p {
+        color: #000000 !important;
+      }
+
+      li strong {
+        color: #ba4a00 !important;
+        font-weight: 900;
+      }
+
+      code {
+        background: #f0f0f0 !important;
+        color: #c7254e !important;
+        border: 1px solid #cccccc !important;
+      }
+
+      hr {
+        border-top: 2px solid #999999 !important;
+        page-break-after: avoid;
+      }
+
+      hr.thick {
+        border-top: 4px solid #ba4a00 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section class="center">
+        <h1>语音智能体的 2025</h1>
+        <h2>从 API 到新入口</h2>
+        <p style="margin-top: 2em;">Weidong Shao</p>
+      </section>
+
+      <section>
+        <h2>关于讲者</h2>
+        <ul>
+          <li>Weidong Shao, CEO, OmniEdge.ai </li>
+          <li>十多年硅谷 + 中国经验，专注 AI 芯片、LLM 推理加速与开发者平台</li>
+          <li>曾负责 SoC / NPU / AI 工具链团队，服务自动驾驶与大模型场景</li>
+          <li>当前创业方向：AI Gateway + LLM 推理基础设施</li>
+          <li>长期关注：语音智能体、教育场景 AI、以及中美开发者生态的差异与机会</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>今天聊什么？</h2>
+        <ol>
+          <li>为什么 2025 是语音智能体爆发的时间点？</li>
+          <li>从"语音机器人"到"语音 Agent"的技术代际变化</li>
+          <li>海外典型平台：Vapi、Retell、Synthflow 等怎么玩？</li>
+          <li>国内生态与阿里通义的机会窗口</li>
+          <li>给阿里系 / 孵化器创业者的三点建议</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>01 · 为什么是现在？</h2>
+        <div class="box fragment" style="margin-bottom: 15px; padding: 15px;">
+          <p style="font-size: 1.1em; font-weight: bold; color: var(--accent-color); margin: 0;">
+            2025 年不是语音复兴，而是语音成为业务入口的第一年
+          </p>
+        </div>
+        <ul style="font-size: 0.7em;">
+          <li class="fragment"><strong>市场面：</strong>
+            <ul>
+              <li>Voice AI Agents：2024 年 24 亿 → 2034 年 475 亿美金，CAGR 34.8%</li>
+              <li>Voice Assistant：2023 年 53.5 亿 → 2031 年 355 亿美金，CAGR 29%</li>
+              <li>AI Voice Generator：2023 年 32 亿 → 2032 年 402 亿美金，CAGR 32%</li>
+            </ul>
+          </li>
+          <li class="fragment"><strong>资本面：</strong>语音 AI VC 从 2022 年 3.15 亿美金 → 2024 年 21 亿美金，两年增长 7 倍</li>
+          <li class="fragment"><strong>技术面：</strong>延迟跨过 400–500ms 门槛，语音从"客服工具"变成"业务操作系统"</li>
+          <li class="fragment"><strong>用户面：</strong>2024 年 60% 智能手机用户定期使用语音助手（2023 年仅 45%）</li>
+        </ul>
+        <p style="font-size: 0.55em; color: #999; margin-top: 10px;">数据来源：Market.us / MarketsandMarkets 2025 市场研究报告</p>
+      </section>
+
+      <section>
+        <h2>02 · 从 IVR 到语音智能体</h2>
+        <div class="two-col">
+          <div class="box fragment">
+            <h3>过去：IVR / 语音机器人</h3>
+            <ul>
+              <li>按 1 查余额，按 2 转人工</li>
+              <li>固定话术、树状流程</li>
+              <li>ASR / TTS 只是"工具"</li>
+              <li>对话不理解上下文</li>
+            </ul>
+          </div>
+          <div class="box box-success fragment">
+            <h3>现在：LLM 语音智能体</h3>
+            <ul>
+              <li>能听（流式 ASR）</li>
+              <li>能想（LLM + 工具调用）</li>
+              <li>能说（拟人 TTS）</li>
+              <li>支持打断、补充、纠正</li>
+              <li>直接"办事"：下单、改签、开工单</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>03 · Realtime API：新应用运行时</h2>
+        <div class="box fragment" style="margin-bottom: 10px; padding: 12px;">
+          <p style="font-size: 0.85em; margin: 0;">它把"听、理解、说、工具调用、电话接口"全部放在同一个实时事件循环里，<strong>是未来语音智能体的操作系统</strong></p>
+        </div>
+        <ul style="font-size: 0.7em;">
+          <li class="fragment"><strong>代表：</strong>OpenAI Realtime API、阿里 Qwen-Omni-Realtime</li>
+          <li class="fragment" style="color: var(--accent-color);"><strong>🔥 Just Released (Dec 15):</strong>
+            <code>gpt-realtime-mini</code> — 更低成本、更强中文支持、抗噪能力提升 (Noisy Audio)。
+          </li>
+          <li class="fragment"><strong>核心能力：</strong>
+            <ul>
+              <li>流式音频输入 + 文本/音频输出</li>
+              <li>全双工会话：边听边说，支持打断（Barge-in）</li>
+              <li>工具调用：通过 MCP / 函数访问知识库和业务系统</li>
+              <li>电话能力：通过 SIP 接 PSTN / 运营商网络</li>
+            </ul>
+          </li>
+          <li class="fragment"><strong>延迟门槛：</strong>400–500ms 是 True Realtime 的跨越点，SSM 模型（如 Cartesia Sonic）让流式 TTS 达到
+            WebRTC 级响应</li>
+          <li class="fragment"><strong>多模态演进：</strong>视频帧 + 语音 + 文本，直播、远程服务、教育陪练、数字人将在 2025–2027 迎来 Realtime 智能体化</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 style="font-size: 1.25em;">05 · 通义千问：阿里系的实时语音能力</h2>
+        <ul>
+          <li><strong>实时语音识别：</strong>多语种、高噪声环境、上下文增强、情绪识别</li>
+          <li><strong>实时语音合成：</strong>低延迟流式 TTS，多种拟人音色，多语种 / 方言，一音色多语种</li>
+          <li><strong>Qwen-Omni-Realtime：</strong>
+            <ul>
+              <li>文本 + 音频 + 图像 / 视频帧的实时多模态模型</li>
+              <li>适合直播、在线客服、教育陪练、数字人等场景</li>
+            </ul>
+          </li>
+          <li class="fragment"
+            style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; margin-top: 10px;">
+            <strong style="color: var(--success-color);">赢在生态 (The Partner Opportunity):</strong>
+            <ul style="margin-top: 5px;">
+              <li><strong>不做通用，做垂直专家 (Vertical AI Expert)：</strong></li>
+              <li>生态伙伴的机会在于：利用通义底座，结合行业 Know-how (如医疗、法律、教育)，<strong>编排 (Orchestrate)</strong> 出解决最后一公里的 Agent 产品。</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 style="font-size: 1.3em;">History Lesson: GOOG-411 (2007)</h2>
+        <div class="box box-accent fragment" style="padding: 10px; margin-bottom: 15px;">
+          <p style="font-size: 0.8em; margin-bottom: 5px;"><strong>The Hidden Purpose:</strong> Google launched a free
+            411 directory service.</p>
+          <p style="font-size: 0.65em; margin: 0;">Not for profit, but to collect <strong>massive real-world speech
+              data</strong> (accents, noise).</p>
+        </div>
+
+        <div class="two-col" style="gap: 15px;">
+          <div class="box fragment" style="padding: 12px;">
+            <h3 style="font-size: 0.8em; margin-bottom: 5px;">The Pivot</h3>
+            <ul style="font-size: 0.55em; margin-top: 5px;">
+              <li><strong>Old Way:</strong> Handcrafted DSP features & expert rules.</li>
+              <li><strong>New Way:</strong> Data + Statistical Learning.</li>
+              <li><strong>Result:</strong> More data beat better algorithms.</li>
+            </ul>
+          </div>
+          <div class="box box-success fragment" style="padding: 12px;">
+            <h3 style="font-size: 0.8em; margin-bottom: 5px;">The Impact</h3>
+            <ul style="font-size: 0.55em; margin-top: 5px;">
+              <li>Unlocked Deep Learning for ASR.</li>
+              <li>Solved "hard problems" (noise/accents) via scale.</li>
+              <li>Set the template: <strong>Data Flywheel > Clever DSP</strong>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="fragment highlight-box" style="margin-top: 15px; padding: 10px;">
+          <p style="font-size: 0.75em; margin: 0;"><strong>💡 Core Takeaway:</strong> The competitive moat is not the
+            model — it’s continuous, real interaction data.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2 style="font-size: 1.4em;">05 · Infrastructure (基础设施)</h2>
+        <div class="two-col" style="gap: 20px;">
+          <div class="box fragment" style="padding: 15px;">
+            <h3 style="font-size: 1em; margin-bottom: 5px;">Retell AI & Vapi</h3>
+            <p style="font-size: 0.8em; margin-bottom: 8px;"><strong>"The Twilio for Voice Agents"</strong></p>
+            <ul style="font-size: 0.65em; margin-top: 0;">
+              <li><strong>核心痛点:</strong> Interruption (打断) & VAD (语感)</li>
+              <li><strong>2025:</strong> Sub-500ms 延迟是标配</li>
+              <li><strong>Retell:</strong> 专注稳定性，"AI 神经系统"</li>
+              <li><strong>Vapi:</strong> 开发者优先，高度可定制</li>
+            </ul>
+          </div>
+          <div class="box box-success fragment" style="padding: 15px;">
+            <h3 style="font-size: 1em; margin-bottom: 5px;">AliCloud Opportunity</h3>
+            <ul style="font-size: 0.65em; margin-top: 10px;">
+              <li>国内缺一个统治级的 Retell</li>
+              <li><strong>阿里云优势:</strong> 低延迟网络 + ACK 容器</li>
+              <li><strong>机会:</strong> 做 Agent 的"神经中枢"，把延迟压到极致</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fragment highlight-box" style="margin-top: 15px; padding: 10px;">
+          <p style="font-size: 0.8em; margin: 0;"><strong>💡 Scoop:</strong> 别光卷模型。谁能把延迟压进 400ms，谁就是赢家。</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>07 · The Emotional Rebel (情绪革命)</h2>
+        <div class="two-col" style="gap: 20px;">
+          <div class="box fragment" style="padding: 15px;">
+            <h3 style="font-size: 1em; margin-bottom: 5px;">Fish Audio (鱼语)</h3>
+            <p style="font-size: 0.8em; margin-bottom: 8px;"><strong>"不仅读稿，是表演"</strong></p>
+            <ul style="font-size: 0.65em; margin-top: 0;">
+              <li><strong>核心卖点:</strong> 情绪颗粒度 (Emotional Granularity)</li>
+              <li><strong>Feature:</strong> 控制 <code>[叹气]</code> <code>[讥讽]</code> <code>[耳语]</code></li>
+              <li><strong>场景:</strong> 二次元、游戏 NPC、情感陪伴</li>
+            </ul>
+          </div>
+          <div class="box box-accent fragment" style="padding: 15px;">
+            <h3 style="font-size: 1em; margin-bottom: 5px;">MiniMax (稀宇科技)</h3>
+            <ul style="font-size: 0.65em; margin-top: 10px;">
+              <li><strong>特点:</strong> 极其拟人，语速停顿像真人 (Speech-02)</li>
+              <li><strong>体验:</strong> 支持超低延迟流式输出</li>
+              <li><strong>Vibe:</strong> "不好好说话"才是真人的标志</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fragment highlight-box" style="margin-top: 15px; padding: 10px;">
+          <p style="font-size: 0.8em; margin: 0;"><strong>💡 Scoop:</strong> 以前的 TTS 像广播员，现在的模型有"灵魂"。呼吸声、吞字是标配。</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>08 · Open Source Speedsters (开源速度)</h2>
+        <div class="two-col" style="gap: 20px;">
+          <div class="box fragment" style="padding: 15px;">
+            <h3 style="font-size: 1em; margin-bottom: 5px;">F5-TTS</h3>
+            <ul style="font-size: 0.65em; margin-top: 10px;">
+              <li><strong>技术路线：</strong>Flow Matching（流匹配），非自回归生成</li>
+              <li><strong>能力特点：</strong>支持 Zero-Shot 语音模仿，短音频即可使用</li>
+              <li><strong>社区生态：</strong>开源项目，社区活跃，上手成本低、推理速度快</li>
+            </ul>
+          </div>
+          <div class="box box-success fragment" style="padding: 15px;">
+            <h3 style="font-size: 1em; margin-bottom: 5px;">CosyVoice 3.0 (AliCloud)</h3>
+            <p style="font-size: 0.8em; margin-bottom: 8px;"><strong>"0.5B Model Open Sourced (Dec)"</strong></p>
+            <ul style="font-size: 0.65em; margin-top: 0;">
+              <li><strong>阿里通义实验室:</strong> 开源界的天花板</li>
+              <li><strong>CosyVoice 3.0:</strong> 流式生成极致优化，韵律更自然</li>
+              <li><strong>对比:</strong> 中文语境下的稳定性完胜竞品</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fragment highlight-box" style="margin-top: 15px; padding: 10px;">
+          <p style="font-size: 0.8em; margin: 0;"><strong>💡 Insight:</strong> 开源模型 (Open Source) 的效果正在快速逼近闭源
+            API，为私有化部署提供了真正可用的选项。</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>09 · Multimodal Giants (原声多模态)</h2>
+        <div class="two-col" style="gap: 20px;">
+          <div class="box fragment" style="padding: 15px;">
+            <h3 style="font-size: 1em; margin-bottom: 5px;">Qwen3-Omni (New!)</h3>
+            <p style="font-size: 0.8em; margin-bottom: 8px;"><strong>"听得懂弦外之音"</strong></p>
+            <ul style="font-size: 0.65em; margin-top: 0;">
+              <li><strong>Native:</strong> 直接处理音频信号</li>
+              <li><strong>能力:</strong> 听懂语气、情感、犹豫</li>
+              <li><strong>场景:</strong> 财报会议 ("CEO 语气是不是心虚？")</li>
+            </ul>
+          </div>
+          <div class="box box-accent fragment" style="padding: 15px;">
+            <h3 style="font-size: 1em; margin-bottom: 5px;">Gemini 2.5 Flash (Dec 12)</h3>
+            <ul style="font-size: 0.65em; margin-top: 10px;">
+              <li><strong>Native Audio:</strong> Enable effective, real-time comms</li>
+              <li><strong>Live Agents:</strong> "Google Live" 级别的低延迟交互</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fragment highlight-box" style="margin-top: 15px; padding: 10px;">
+          <p style="font-size: 0.8em; margin: 0;"><strong>💡 Scoop:</strong> AI 终于能听懂你的"语气"了，而不只是"文字"。</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>10 · Music Generation (音乐生成)</h2>
+        <div class="three-col" style="gap: 15px;">
+          <div class="box fragment" style="padding: 10px;">
+            <h3 style="font-size: 0.8em; margin-bottom: 5px;">Suno v4 (Pioneer)</h3>
+            <ul style="font-size: 0.55em; margin-top: 5px;">
+              <li><strong>进化:</strong> 片段 → 完整歌曲 (Verse/Chorus)</li>
+              <li><strong>意义:</strong> 从"玩具"走向"可用工具"</li>
+            </ul>
+          </div>
+          <div class="box box-success fragment" style="padding: 10px;">
+            <h3 style="font-size: 0.8em; margin-bottom: 5px;">SkyMusic (Vertical)</h3>
+            <ul style="font-size: 0.55em; margin-top: 5px;">
+              <li><strong>背景:</strong> 昆仑万维垂直音乐大模型</li>
+              <li><strong>进展:</strong> 完整歌曲成型，国内差距缩小</li>
+            </ul>
+          </div>
+          <div class="box box-accent fragment" style="padding: 10px;">
+            <h3 style="font-size: 0.8em; margin-bottom: 5px;">ByteDance (Platform)</h3>
+            <ul style="font-size: 0.55em; margin-top: 5px;">
+              <li><strong>核武:</strong> 抖音/TikTok 超大分发平台</li>
+              <li><strong>落地:</strong> 最先实现规模化 (BGM + Singer)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fragment highlight-box" style="margin-top: 15px; padding: 10px;">
+          <p style="font-size: 0.75em; margin: 0;"><strong>💡 Scoop:</strong> AI 音乐真正的第一战场，不是专业音乐 (周杰伦)，而是<strong>短视频
+              BGM</strong>。</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>11 · The Cheat Sheet</h2>
+        <table style="font-size: 0.5em; width: 100%;">
+          <thead>
+            <tr>
+              <th>赛道 (Track)</th>
+              <th>推荐模型/产品</th>
+              <th>核心优势 (Hook)</th>
+              <th>阿里云生态结合点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment">
+              <td><strong>基础设施</strong></td>
+              <td><strong>Retell AI / Vapi</strong></td>
+              <td>"AI 电话神经系统，解决打断"</td>
+              <td>阿里云低延迟网络 + ACK</td>
+            </tr>
+            <tr class="fragment">
+              <td><strong>情绪/表演</strong></td>
+              <td><strong>Fish Audio / MiniMax</strong></td>
+              <td>"不仅是读字，是表演"</td>
+              <td>跑在阿里云 GPU 实例 (EGS)</td>
+            </tr>
+            <tr class="fragment">
+              <td><strong>开源极速</strong></td>
+              <td><strong>F5 / CosyVoice 3.0</strong></td>
+              <td>"零样本克隆，开源速度王"</td>
+              <td><strong>CosyVoice 阿里自研</strong>/ModelScope</td>
+            </tr>
+            <tr class="fragment">
+              <td><strong>全能大脑</strong></td>
+              <td><strong>Qwen3-Omni / Gemini 2.5</strong></td>
+              <td>"听得懂弦外之音的原生多模态"</td>
+              <td><strong>通义千问家族</strong>，百炼平台</td>
+            </tr>
+            <tr class="fragment">
+              <td><strong>音乐生成</strong></td>
+              <td><strong>Suno v4</strong></td>
+              <td>"完整的歌曲结构生成"</td>
+              <td>泛娱乐出海客户首选</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>12 · 总结建议</h2>
+        <div class="three-col" style="gap: 15px;">
+          <div class="box fragment" style="padding: 15px;">
+            <h3 style="font-size: 0.85em; margin-bottom: 5px;">B2B 先行</h3>
+            <p style="font-size: 0.55em; margin: 0; line-height: 1.4;">企业语音服务正式进入<br><strong>「人机协同」</strong>时代。</p>
+          </div>
+          <div class="box box-success fragment" style="padding: 15px;">
+            <h3 style="font-size: 0.85em; margin-bottom: 5px;">深度融入生态</h3>
+            <p style="font-size: 0.55em; margin: 0; line-height: 1.4;">基于 CosyVoice 3.0 + Qwen3<br>构建企业级私有化 Voice Agent。
+            </p>
+          </div>
+          <div class="box box-accent fragment" style="padding: 15px;">
+            <h3 style="font-size: 0.85em; margin-bottom: 5px;">治理优先</h3>
+            <p style="font-size: 0.55em; margin: 0; line-height: 1.4;">合规、可控与可审计，<br>是最大的长期护城河。</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Join the Mission (Part 1)</h2>
+        <div class="two-col" style="gap: 20px; align-items: center;">
+          <div style="flex: 1;">
+            <img src="omniedge_arch.png"
+              style="width: 100%; border-radius: 12px; border: 2px solid var(--accent-color); box-shadow: 0 4px 12px rgba(0,0,0,0.2);"
+              alt="R9s Architecture with Internal + External LLMs">
+          </div>
+          <div class="box box-accent" style="padding: 15px; flex: 1.2;">
+            <h3 style="margin-bottom: 5px; font-size: 0.9em;">RouteTokens.com</h3>
+
+            <div style="font-size: 0.6em; text-align: left; margin-top: 10px;">
+              <p style="margin-bottom: 5px;"><strong>⚡ The "OS" for Enterprise Agents</strong></p>
+              <ul style="margin-left: 15px; margin-bottom: 5px;">
+                <li><strong>Hybrid Core:</strong> Active State Management (Redis).</li>
+                <li><strong>BYOM:</strong> Secure Tunnel to Private VPCs.</li>
+              </ul>
+
+              <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="margin-bottom: 5px; color: var(--success-color);"><strong>🧪 R9s Labs</strong></p>
+                <p>Calling all <strong>Agent Developers</strong>!</p>
+                <ul style="margin-left: 15px;">
+                  <li>Build on top of our State/Privacy Layer.</li>
+                  <li>Focus on logic, we handle the plumbing.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Join the Mission (Part 2)</h2>
+        <div class="two-col" style="gap: 30px; align-items: center;">
+
+          <!-- Left: Opportunities (Combined Box) -->
+          <div class="box fragment" style="padding: 25px; flex: 1.1; text-align: left;">
+            <!-- Hiring -->
+            <div style="margin-bottom: 20px;">
+              <h3 style="font-size: 0.9em; margin-bottom: 5px; color: var(--accent-color);">🤝 We are Hiring</h3>
+              <p style="font-size: 0.7em; margin-bottom: 2px;"><strong>Systems Engineers</strong></p>
+              <p style="font-size: 0.55em; color: #aaa;">Core Team | Distributed System | High Concurrency</p>
+              <p style="font-size: 0.6em; margin-top: 5px;">Help us build the "Traffic Control" for the Agent Era.</p>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin: 20px 0;">
+
+            <!-- VC -->
+            <div>
+              <h3 style="font-size: 0.9em; margin-bottom: 5px; color: var(--success-color);">🚀 Ecosystem Support</h3>
+              <p style="font-size: 0.7em; margin-bottom: 2px;"><strong>Welcoming VC Partners</strong></p>
+              <p style="font-size: 0.55em; color: #aaa;">Support Open Source & Infra</p>
+              <p style="font-size: 0.6em; margin-top: 5px;">Let's fuel the next generation of Open Source Voice
+                Infrastructure.</p>
+            </div>
+          </div>
+
+          <!-- Right: QR Code -->
+          <div class="fragment" style="flex: 0.9; text-align: center;">
+            <img src="Wechat-QR.png"
+              style="width: 360px; height: 360px; border-radius: 12px; border: 4px solid white; box-shadow: 0 8px 20px rgba(0,0,0,0.4);"
+              alt="WeChat QR">
+            <div style="margin-top: 20px;">
+              <h3 style="color: var(--accent-color); font-size: 1.2em; margin-bottom: 5px;">Come talk to me! ☕️</h3>
+              <p style="font-size: 0.8em;">Weidong Shao</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section>
+        <h2>Q & A</h2>
+        <p>欢迎大家从场景、技术、商业模式三个角度来"拆解"你心中的语音 Agent。</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/notes/notes.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/markdown/markdown.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/highlight/highlight.min.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+
+      // PDF Export Configuration
+      pdfSeparateFragments: false,
+      pdfMaxPagesPerSlide: 1,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+
+</html>
